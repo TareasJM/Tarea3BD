@@ -1,0 +1,6 @@
+# Specify order of index files; if none exist, show files list
+  DirectoryIndex index.php index.html
+
+# Interpret .html files as .php scripts
+  AddHandler php5-script .php .html
+
