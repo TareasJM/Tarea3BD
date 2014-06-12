@@ -1,12 +1,12 @@
 CREATE TABLE Carrera (
-        id_carrera	int primary key not null,
+        id_carrera	SERIAL primary key not null,
         nombre		varchar(20) not null,
         campus		varchar(20) not null
 );
 
 CREATE TABLE Alumno (
         rol			varchar(20) primary key not null,
-        id_carrera	int references Carrera(id_carrera) not null,
+        id_carrera	SERIAL references Carrera(id_carrera) not null,
         rut			varchar(20) not null,
         nombre		varchar(20) not null,
         correo		varchar(20) not null,
@@ -16,12 +16,12 @@ CREATE TABLE Alumno (
 );
 
 CREATE TABLE Postulante (
-	id_postulante	int primary key not null,
+	id_postulante	SERIALprimary key not null,
 	rol				varchar(20) references Alumno(rol) not null
 );
 
 CREATE TABLE Coordinador (
-	id_coordinador	int primary key not null,
+	id_coordinador	SERIAL primary key not null,
 	rol				varchar(20) references Alumno(rol) not null
 );
 
@@ -32,7 +32,7 @@ CREATE TABLE Selecciona (
 );
 
 CREATE TABLE Area (
-	id_area 		int primary key not null,
+	id_area 		SERIAL primary key not null,
 	nombre			varchar(20) not null,
 	n_colaboradores	int not null
 );
