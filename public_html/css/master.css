@@ -1,0 +1,26 @@
+body{
+	background-color:red;
+	margin: 0;
+	padding: 0;
+}
+#header{
+	background-color: grey;
+	height: 100px;
+}
+#headerTitle{
+	color: black;
+	font-size: 30px;
+	text-align: center;
+}
+#sidebar{
+	background-color: purple;
+	width: 15%;
+	min-height: 100%;
+	float: left;
+}
+#content{
+	background-color: green;
+	width: 85%;
+	min-height: 100%;
+	float: right;
+}
