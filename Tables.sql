@@ -52,7 +52,7 @@ CREATE TABLE Coordina (
 );
 
 CREATE TABLE Noticia (
-	id_noticia		int not null,
+	id_noticia		SERIAL not null,
 	id_coordinador	int references Coordinador(id_coordinador) not null,
 	id_area			int references Area(id_area) not null,
 	titular			varchar(20) not null,
