@@ -16,8 +16,8 @@ CREATE TABLE Alumno (
 );
 
 CREATE TABLE Postulante (
-	id_postulante	SERIALprimary key not null,
-	rol				varchar(20) references Alumno(rol) not null
+	id_postulante	SERIAL primary key not null,
+	rol		 		varchar(20) references Alumno(rol) not null
 );
 
 CREATE TABLE Coordinador (
