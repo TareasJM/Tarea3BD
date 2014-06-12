@@ -6,7 +6,7 @@ CREATE TABLE Carrera (
 
 CREATE TABLE Alumno (
         rol			varchar(20) primary key not null,
-        id_carrera	SERIAL references Carrera(id_carrera) not null,
+        id_carrera	int references Carrera(id_carrera) not null,
         rut			varchar(20) not null,
         nombre		varchar(20) not null,
         correo		varchar(20) not null,
