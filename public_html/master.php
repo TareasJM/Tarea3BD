@@ -23,6 +23,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
 	<link rel="stylesheet" type="text/css" href="css/master.css">
 	<?php echo $css; ?>
+	<?php echo $script; ?>
 </head>  
 <body>
 
