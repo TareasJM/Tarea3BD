@@ -5,19 +5,19 @@ CREATE TABLE Carrera (
 );
 
 CREATE TABLE Alumno (
-        rol			varchar(20) primary key not null,
+        rol			varchar(100) primary key not null,
         id_carrera	int references Carrera(id_carrera) not null,
-        rut			varchar(20) not null,
-        nombre		varchar(20) not null,
-        correo		varchar(20) not null,
-        contrasena	varchar(20) not null,
-        telefono	varchar(20) not null,
-        talla		varchar(20) default null
+        rut			varchar(100) not null,
+        nombre		varchar(100) not null,
+        correo		varchar(100) not null,
+        contrasena	varchar(100) not null,
+        telefono	varchar(100) not null,
+        talla		varchar(100) default null
 );
 
 CREATE TABLE Postulante (
 	id_postulante	SERIAL primary key not null,
-	rol		 		varchar(20) references Alumno(rol) not null
+	rol		 		varchar(100) references Alumno(rol) not null
 );
 
 CREATE TABLE Permiso (
@@ -31,8 +31,8 @@ CREATE TABLE Permiso (
 CREATE TABLE Coordinador (
 	id_coordinador	SERIAL primary key not null,
 	id_permiso		int references Permiso(id_permiso) not null,
-	rol				varchar(20) references Alumno(rol) not null,
-	tipo 			varchar(20) not null
+	rol				varchar(100) references Alumno(rol) not null,
+	tipo 			varchar(100) not null
 );
 
 CREATE TABLE Selecciona (
@@ -43,9 +43,9 @@ CREATE TABLE Selecciona (
 
 CREATE TABLE Area (
 	id_area 		SERIAL primary key not null,
-	nombre			varchar(20) not null,
+	nombre			varchar(100) not null,
 	n_colaboradores	int not null,
-	horario 		varchar(20) not null
+	horario 		varchar(100) not null
 );
 
 CREATE TABLE Postula (
@@ -66,8 +66,8 @@ CREATE TABLE Noticia (
 	id_noticia		SERIAL not null,
 	id_coordinador	int references Coordinador(id_coordinador) not null,
 	id_area			int references Area(id_area) not null,
-	titular			varchar(20) not null,
+	titular			varchar(100) not null,
 	contenido		text not null,
-	fecha			varchar(20) not null,
+	fecha			varchar(100) not null,
 	primary key(id_noticia, id_coordinador, id_area)
 );

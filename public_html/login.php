@@ -54,33 +54,20 @@
 	        }
 	    </script>
 	';
-	$title2 = '<h2>Ingrese Información de postulación</h2> ';
+	$title2 = '<h2>Portal Alumno</h2> ';
 	$content ='
 		 
 		<ul>  
 			<form action="ingresarPostulacion.php" method="POST" onsubmit="validateForm()" >  
-				<li>Nombre:<br><input type="text" name="nombre" id="nombre" /></li> 
-				<li>RUT:<br><input type="text" name="rut" id="rut" /></li> 
+
 				<li>ROL:<br><input type="text" name="rol" id="rol" /></li>
-				<li>Carrera:<br><select name="carrera" id="carrera" >'; 
-	
-	foreach ($carreras as $carrera) {
-	    $content = $content . '<option value="' . $carrera[0] . '">' . $carrera[1] . '</option>';
-	}
-	$content = $content.'</select></li>
-				<li>Correo:<br><input type="text" name="correo" id="correo" /></li> 
-				<li>Teléfono:<br><input type="text" name="telefono" id="telefono" /></li> 
 				<li>Contraseña:<br><input type="password" name="contrasena" id="contrasena" /></li> 
-				<li>Reapita contraseña:<br><input type="password" name="contrasena2" id="contrasena2" /></li> 
-				<li>Postulación 1:<br><input type="number" name="postulacion1" id="postulacion1" /></li> 
-				<li>Postulación 2:<br><input type="number" name="postulacion2" id="postulacion2" /></li> 
-				<li>Postulación 3:<br><input type="number" name="postulacion3" id="postulacion3" /></li> 
 				<li><input type="submit" /></li>  
 			</form>  
 		</ul>
 	';
 	 
 	include("master.php");  
-	include("../php/ingresarPostulacion.php");
+	include("../php/getAlumnos.php");
 	InsertarAlumno($_POST[rol],$_POST[carrera],$_POST[rut],$_POST[nombre],$_POST[correo],$_POST[contrasena],$_POST[telefono]);
 ?> 

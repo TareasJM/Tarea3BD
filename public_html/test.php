@@ -1,3 +1,4 @@
 <?php  
-	include("../php/getCarreras.php");   
+	echo "alp";
+	include("../php/test.php");   
 ?> 
