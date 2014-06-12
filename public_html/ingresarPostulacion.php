@@ -54,9 +54,9 @@
 	        }
 	    </script>
 	';
-	
+	$title2 = '<h2>Ingrese Información de postulación</h2> ';
 	$content ='
-		<h2>Ingrese Información de postulación</h2>  
+		 
 		<ul>  
 			<form action="ingresarPostulacion.php" method="POST" onsubmit="validateForm()" >  
 				<li>Nombre:<br><input type="text" name="nombre" id="nombre" /></li> 

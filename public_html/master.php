@@ -30,7 +30,6 @@
 
 	<div id="header">
 		<div id="headerTitle"><?php echo $title; ?></div>
-
 		<?php echo $header; ?>
 	</div>
 
@@ -39,6 +38,7 @@
 	</div>
 
 	<div id="content">
+		<center><?php echo $title2; ?></center>
 		<?php echo $content; ?>
 	</div>
 		

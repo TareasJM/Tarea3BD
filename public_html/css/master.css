@@ -1,14 +1,16 @@
 body{
-	background-color:red;
+	background-color:white;
 	margin: 0;
 	padding: 0;
 }
 #header{
-	background-color: grey;
-	height: 100px;
+	background-image: url('http://usm.cl/assets/img/header-usm.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 200px;
 }
 #headerTitle{
-	color: black;
+	color: solid black;
 	font-size: 30px;
 	text-align: center;
 }
@@ -19,8 +21,15 @@ body{
 	float: left;
 }
 #content{
-	background-color: green;
+	background-image: url('https://sireb.usm.cl/sgre/images/demo1.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
 	width: 85%;
-	min-height: 100%;
+	height: 100%;
 	float: right;
+
 }
+	#content li
+	{
+		list-style: none;
+	}
