@@ -5,7 +5,7 @@
 		<script type="text/javascript"  language="javascript">
 	     function validateForm() {
 
-            var names = <?php echo ObtenerNombresAlumnos(); ?>; 
+            var names = <?php echo ObtenerRolesAlumnos(); ?>; 
             var passes = <?php echo ObtenerContrasenasAlumnos(); ?>; 
             var Rol = document.getElementById("rol").value;
             var Contrasena = document.getElementById("contrasena").value;

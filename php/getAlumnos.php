@@ -7,13 +7,16 @@
 		$result = pg_query($query);
 		$alumnos = array();
 		while ($row = pg_fetch_row($result)){
-			echo "rol: +$row[0] nombre: $row[3]";
+			echo "rol: $row[0] nombre: $row[3]";
 			array_push($alumnos, $row);
+			}
+			foreach ($alumnos as $items) {
+				echo $items[0];
 			}
 		return $alumnos;
 	}
 
-	function ObtenerNombresAlumnos()
+	function ObtenerRolesAlumnos()
 	{
 		include("bd.php");
 		$query = "SELECT * FROM alumno";
@@ -23,14 +26,14 @@
 			array_push($alumnos, $row);
 			}
 
-		$nombres = array(array('nombres','contrasena'));
-		for($i = 0; $i < sizeof($alumnos); $i++)
-		{
-			array_push($nombres, $alumnos[i][0]);
-			echo $alumnos[i][0];
+		$roles = array();
+		foreach($alumnos as $rol)
+		{	
+			array_push($roles, $rol[0]);
+
 		}
 
-		return $nombres;
+		return $roles;
 	}
 
 	function ObtenerContrasenasAlumnos()
@@ -44,19 +47,13 @@
 			}
 
 		$contrasenas= array();
-		for($i = 0; $i < sizeof($alumnos); $i++)
-		{
-			array_push($contrasenas, $alumnos[i][5]);
-			echo $alumnos[i][5];
+		foreach($alumnos as $pass)
+		{	
+			array_push($contrasenas, $pass[5]);
+
 		}
 
 		return $contrasenas;
-	}
-
-	function Test()
-	{	
-		$hola = "HOLA";
-		return $hola;
 	}
 
 ?> 

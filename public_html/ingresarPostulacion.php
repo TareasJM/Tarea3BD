@@ -85,5 +85,4 @@
 	include("master.php");  
 	include("../php/ingresarPostulacion.php");
 	InsertarAlumno($_POST[rol],$_POST[carrera],$_POST[rut],$_POST[nombre],$_POST[correo],$_POST[contrasena],$_POST[telefono]);
-	$chao = ObtenerNombresAlumnos();
 ?> 

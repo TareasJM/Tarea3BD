@@ -43,8 +43,10 @@
 		<center><?php echo $title2; ?></center>
 		<?php echo $content; ?>
 		<?php include("../php/getAlumnos.php");?> 
-		<?php $hola = ObtenerNombresAlumnos(); ?>
-		</h4><?php echo $hola; ?></h4>
+		</h1><?php $hola = ObtenerRolesAlumnos(); ?></h1>
+		</h1><?php echo "ss" ?></h1>
+		</h1><?php echo $hola[0]; ?></h1>
+		</h1><?php echo "aa" ?></h1>
 		<h1>HOLA:</h1><input type="text" name="postulacion3" id="postulacion3" value="<?php echo htmlspecialchars(Test()); ?>"/>
 	</div>
 		
