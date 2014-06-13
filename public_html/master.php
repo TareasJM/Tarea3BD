@@ -30,7 +30,16 @@
 
 	<div id="header">
 		<?php echo $header; ?>
-		<a href="login.php">login<a/>
+		
+		<div id="contentHeader">
+			<div id="BH">
+			<ul>
+				<li><a href="ingresarPostulacion.php">Postular<a/><li>
+				<li><a href="login.php">Login<a/><li>
+				<li><a href="login.php">Logout<a/><li>
+			</ul>
+			</div>
+		</div>
 	</div>
 
 	<div id="sidebar">
