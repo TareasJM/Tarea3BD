@@ -1,8 +1,6 @@
 <?php
 	include("../php/getCarreras.php");
 	include("../php/getAlumnos.php");
-	$hola = Test();
-	$title = 'Postulación';
 	$script = '
 		<script type="text/javascript"  language="javascript">
 	        function validateForm() {
@@ -55,11 +53,11 @@
 	        }
 	    </script>
 	';
-	$title2 = '<h2>Ingrese Información de postulación</h2> ';
+	$title = 'Ingrese Información de postulación';
 	$content ='
 		 
 		<ul>  
-			<form action="ingresarPostulacion.php" method="POST" onsubmit="validateForm()" >  
+			<form action="../php/ingresarPostulacion.php" method="POST" onsubmit="validateForm()" >  
 				<li>Nombre:<br><input type="text" name="nombre" id="nombre" /></li> 
 				<li>RUT:<br><input type="text" name="rut" id="rut" /></li> 
 				<li>ROL:<br><input type="text" name="rol" id="rol" /></li>
@@ -82,6 +80,4 @@
 	';
 	 
 	include("master.php");  
-	include("../php/ingresarPostulacion.php");
-	InsertarAlumno($_POST[rol],$_POST[carrera],$_POST[rut],$_POST[nombre],$_POST[correo],$_POST[contrasena],$_POST[telefono]);
 ?> 

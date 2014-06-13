@@ -10,6 +10,10 @@
 											'".$contrasena."',
 											'".$telefono."',
 											NULL)";
-		$result = pg_query($query);
-		}
+		return pg_query($query);
+	}
+
+	echo InsertarAlumno($_POST[rol],$_POST[carrera],$_POST[rut],$_POST[nombre],$_POST[correo],$_POST[contrasena],$_POST[telefono]);
+	echo '<a href="../public_html/index.php">inicio<a/>'
+
 ?> 
