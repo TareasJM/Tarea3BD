@@ -42,6 +42,15 @@
 	<div id="content">
 		<center><?php echo $title2; ?></center>
 		<?php echo $content; ?>
+<<<<<<< HEAD
+=======
+		<?php include("../php/getAlumnos.php");?> 
+		</h1><?php $hola = ObtenerRolesAlumnos(); ?></h1>
+		</h1><?php echo "ss" ?></h1>
+		</h1><?php echo $hola[0]; ?></h1>
+		</h1><?php echo "aa" ?></h1>
+		<h1>HOLA:</h1><input type="text" name="postulacion3" id="postulacion3" value="<?php echo htmlspecialchars(Test()); ?>"/>
+>>>>>>> e497f599746065c0edb8588b1b54b485e1f83555
 	</div>
 		
 </body>  
