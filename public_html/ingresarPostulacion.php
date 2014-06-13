@@ -1,6 +1,7 @@
 <?php
 	include("../php/getCarreras.php");
-
+	include("../php/getAlumnos.php");
+	$hola = Test();
 	$title = 'Postulación';
 	$script = '
 		<script type="text/javascript"  language="javascript">
@@ -75,6 +76,7 @@
 				<li>Postulación 1:<br><input type="number" name="postulacion1" id="postulacion1" /></li> 
 				<li>Postulación 2:<br><input type="number" name="postulacion2" id="postulacion2" /></li> 
 				<li>Postulación 3:<br><input type="number" name="postulacion3" id="postulacion3" /></li> 
+				<li>Postulación 3:<br><input type="text" name="postulacion3" id="postulacion3" value="<?php echo htmlspecialchars(Test()); ?>"/></li> 
 				<li><input type="submit" /></li>  
 			</form>  
 		</ul>
@@ -83,4 +85,5 @@
 	include("master.php");  
 	include("../php/ingresarPostulacion.php");
 	InsertarAlumno($_POST[rol],$_POST[carrera],$_POST[rut],$_POST[nombre],$_POST[correo],$_POST[contrasena],$_POST[telefono]);
+	$chao = ObtenerNombresAlumnos();
 ?> 
