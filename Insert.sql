@@ -12,9 +12,6 @@ INSERT INTO CARRERA (nombre,campus) values ('Ingeniería en Aviación Comercial'
 INSERT INTO CARRERA (nombre,campus) values ('Piloto Comercial','Vitacura');
 INSERT INTO CARRERA (nombre,campus) values ('Técnico Universitario en Mantenimiento Areonáutico','Vitacura');
 
-
-
-
 INSERT INTO AREA (nombre,n_colaboradores,horario) values ('Coordinación General',0,'1-10');
 INSERT INTO AREA (nombre,n_colaboradores,horario) values ('Túnel',0,'1-2');
 INSERT INTO AREA (nombre,n_colaboradores,horario) values ('Dinámicas',0,'3-4');
