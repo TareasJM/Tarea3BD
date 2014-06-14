@@ -17,11 +17,10 @@
 		$result = pg_query($query);
 		$alumnos = array();
 		while ($row = pg_fetch_row($result)){
-			echo "rol: $row[0] nombre: $row[3]";
 			array_push($alumnos, $row);
 			}
 			foreach ($alumnos as $items) {
-				echo $items[0];
+				echo "rol: $items[0]/";
 			}
 		return $alumnos;
 	}
@@ -32,17 +31,11 @@
 		$query = "SELECT * FROM alumno";
 		$result = pg_query($query);
 		$alumnos = array();
+		$roles = array();
 		while ($row = pg_fetch_row($result)) {
 			array_push($alumnos, $row);
+			array_push($roles,$row[0]);
 			}
-
-		$roles = array();
-		foreach($alumnos as $rol)
-		{	
-			array_push($roles, $rol[0]);
-
-		}
-
 		return $roles;
 	}
 
@@ -52,17 +45,12 @@
 		$query = "SELECT * FROM alumno";
 		$result = pg_query($query);
 		$alumnos = array();
+		$contrasenas= array();
+		$i = 0;
 		while ($row = pg_fetch_row($result)) {
 			array_push($alumnos, $row);
+			array_push($contrasenas,$row[5]);
 			}
-
-		$contrasenas= array();
-		foreach($alumnos as $pass)
-		{	
-			array_push($contrasenas, $pass[5]);
-
-		}
-
 		return $contrasenas;
 	}
 

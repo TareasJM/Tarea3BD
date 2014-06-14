@@ -50,6 +50,22 @@
 	<div id="content">
 		<center><h2><?php echo $title; ?></h2> </center>
 		<?php echo $content; ?>
+		<?php
+		include("../php/getAlumnos.php");
+		$nombres = ObtenerRolesAlumnos();
+		$hola = array();
+		foreach($nombres as $roles)
+		{
+			echo "rol: $roles[6]-";
+			$hola[] = $roles;
+		}
+		echo "hola: $hola[1]";
+		$con = ObtenerContrasenasAlumnos();
+		for($i=0;$i<sizeof($con);$i++)
+		{
+			echo "pass : $con[$i]";
+		}
+		?>
 	</div>
 		
 </body>  

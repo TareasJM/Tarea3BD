@@ -28,7 +28,7 @@
 	<link rel="stylesheet" type="text/css" href="css/master.css">
 	<?php echo $css; ?>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-	<script type="text/javascript" language="javascript">
+	<script type="text/javascript">
 	    	function validateForm() {
 	        var roles = new Array();
 	        var passes = new Array();
@@ -49,13 +49,14 @@
 		    var User = document.getElementById("rol").value;
             var Pass = document.getElementById("contrasena").value;
             var i = 0;
-
-        	if(i == roles.length)
+             for(var i=0; i<roles.length; i++){
+		      alert(roles[i]+"<br />");
+		    }
+            if(i == roles.length)
             {
                 alert("Error: No Existe Usuario");
                 return false;
-            };
-            
+            }
             while(User != roles[i])
             {
                 
@@ -71,9 +72,10 @@
             {
                 alert("Error: Contraseña No Coincide");
                 return false;
-            };
+            }
             return true;
-            
+            } 
+           
             } 
 	    </script>
 </head>  
