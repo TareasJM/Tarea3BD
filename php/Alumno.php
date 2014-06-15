@@ -53,8 +53,9 @@ class Alumno
 		include("bd.php");
 		$query = "SELECT *FROM Coordinador WHERE rol = '".$rol."'";
 		$result = pg_query($query);
+		$row = pg_num_rows($result);
 		$alumno = array();
-		if (!$result) {
+		if ($row == 0) {
 
 		    $query = "SELECT *FROM Postulante WHERE rol = '".$rol."'";
 		    $result = pg_query($query);
@@ -71,7 +72,7 @@ class Alumno
 		include("bd.php");
 		$query = "SELECT *FROM Coordinador WHERE rol = '".$rol."'";
 		$result = pg_query($query);
-		$row = pg_num_rows($result);
+		
 		if ($row == 0) {
 
 		    return FALSE;

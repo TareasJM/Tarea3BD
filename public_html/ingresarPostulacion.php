@@ -74,7 +74,7 @@
 				<li>Correo:<br><input type="text" name="correo" id="correo" /></li> 
 				<li>Teléfono:<br><input type="text" name="telefono" id="telefono" /></li> 
 				<li>Contraseña:<br><input type="password" name="contrasena" id="contrasena" /></li> 
-				<li>Reapita contraseña:<br><input type="password" name="contrasena2" id="contrasena2" /></li> 
+				<li>Repita contraseña:<br><input type="password" name="contrasena2" id="contrasena2" /></li> 
 				<li>Postulación 1:<br><input type="number" name="postulacion1" id="postulacion1" /></li> 
 				<li>Postulación 2:<br><input type="number" name="postulacion2" id="postulacion2" /></li> 
 				<li>Postulación 3:<br><input type="number" name="postulacion3" id="postulacion3" /></li> 
