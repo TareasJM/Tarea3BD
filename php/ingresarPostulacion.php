@@ -40,6 +40,6 @@
 	echo InsertarPostulacion($id_pos,$POST[postulacion2],2);
 	echo InsertarPostulacion($id_pos,$POST[postulacion3],3);
 
-	echo '<a href="../public_html/index.php">inicio<a/>'
+	header("Location: ../public_html/login.php");
 
 ?> 

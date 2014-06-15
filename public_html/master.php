@@ -33,7 +33,7 @@
 			<ul>
 				<li><a href="ingresarPostulacion.php">Postular<a/><li>
 				<li><a href="login.php">Login<a/><li>
-				<li><a href="login.php">Logout<a/><li>
+				<li><a href="../php/logout.php">Logout<a/><li>
 			</ul>
 			</div>
 		</div>
