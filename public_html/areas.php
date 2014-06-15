@@ -61,8 +61,8 @@
 			{	?>
             	<tr style="margin-rigth:500px">
             		<td><h4><?php echo $a[1] ?></h4></td>	
-            		<td style="margin-left:500px"><a  class="btn btn-info">Editar</a></td>
-            		<td><a href="../php/EliminarArea.php?nombre=<?php echo $a[1] ?>" class="btn btn-danger">Eliminar</a></td>
+            		<td style="margin-left:500px"><a  href="../php/Areas/EditarArea.php?nombre=<?php echo $a[1] ?>" class="btn btn-info">Editar</a></td>
+            		<td><a href="../php/Areas/EliminarArea.php?nombre=<?php echo $a[1] ?>" class="btn btn-danger">Eliminar</a></td>
             		
             	</tr>
             <?php } ?>

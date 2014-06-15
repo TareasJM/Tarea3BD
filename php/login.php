@@ -29,16 +29,7 @@
     else{
     	session_start();
 		$_SESSION['alumno'] = $alumno;
-		$tof = $al->POC($_POST[rol]);
-		if($tof == TRUE)
-		{
-			$_SESSION['tipo'] = $tipo;	
-		}
-		else
-		{
-			$_SESSION['tipo'] = $tipo;
-		}
-
+		$_SESSION['tipo'] = $tipo;
         header("Location: ../public_html/index.php");
     }
  ?>

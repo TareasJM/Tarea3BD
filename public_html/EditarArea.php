@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>  
 <head>  
 	<title><?php echo $title; ?></title>  
@@ -30,15 +32,17 @@
 	</div>
 
 	<div id="content" style="color:black">
-
-
 		<ul style="text-align:center"> 
-			<h1>Agregar Área</h1>
-			<form action="../php/Areas/AgregarArea.php" method="POST" onsubmit="validateForm()" >  
-				<li>Nombre:<br><input type="text" name="nombre" id="nombre" /></li> 
-				<li>N°Colaboradores:<br><input type="text" name="ncol" id="ncol" /></li> 
-				<li>Horario:<br><input type="text" name="horario" id="horario" /></li>
-				<li><input value="Agregar" class="btn btn-info" type="submit"/></li>
+			<h1>Editar Área</h1>
+			<form action="../php/Areas/GuardarEditado.php" method="POST" >
+				<li><input type="hidden" name="id" id="id" value="<?= $_SESSION['area'][0] ?>"/> </li> 
+				<li>Nombre:<br><input type="text" name="nombre" id="nombre" placeholder="<?= $_SESSION['area'][1] ?>"/>
+				</li> 
+				<li>N°Colaboradores:<br><input type="text" name="ncol" id="ncol" placeholder="<?= $_SESSION['area'][2] ?>"/>
+				</li> 
+				<li>Horario:<br><input type="text" name="horario" id="horario" placeholder="<?= $_SESSION['area'][3] ?>"/>
+				</li>
+				<li><input value="Editar" class="btn btn-info" type="submit"/></li>
 		</ul>
 	</div>
 		  

@@ -21,6 +21,18 @@ class Area
 		return $areas;
 	}
 
+	function EditArea($nombre)
+	{
+		include("bd.php");
+		$query = "SELECT * FROM area WHERE nombre = '".$nombre."'";
+		$result = pg_query($query);
+		$area = array();
+		while ($row = pg_fetch_row($result))
+		{	
+			array_push($area, $row);
+		}
+		return $area;
+	}
 
 	// function deleteAreaByName($nombre)
 	// {
