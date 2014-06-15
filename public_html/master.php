@@ -4,10 +4,6 @@
 		$title = "Titulo nulo";
 	}
 
-	if (is_null($header)) {
-		$header = "header nulo";
-	}
-
 	if (is_null($content)) {
 		$content = "Contenido nulo";
 	}
@@ -15,6 +11,7 @@
 	if (is_null($sidebar)) {
 		$sidebar = "Sidebar nulo";
 	}
+
 ?>
 
 <!DOCTYPE html>  
@@ -43,29 +40,25 @@
 	</div>
 
 	<div id="sidebar">
-		<?php echo $sidebar; ?>
-		
+				<?php
+				if($_SESSION['tipo'] == 1){ ?>
+				<li><a href="ingresarPostulacion.php">MisDatos<a/><li>
+				<li><a href="login.php">Áreas<a/><li>
+				<li><a href="login.php">Coordinaodres de Área<a/><li>
+				<li><a href="login.php">Noticias<a/><li>
+				<li><a href="login.php">Postulantes<a/><li>
+				<li><a href="login.php">Colaboradores<a/><li>
+				<li><a href="login.php">Seleccionados<a/><li>
+
+				<?php } ?>
+				
+
 	</div>
 
 	<div id="content">
 		<center><h2><?php echo $title; ?></h2> </center>
 		<?php echo $content; ?>
-		<?php
-		include("../php/getAlumnos.php");
-		$nombres = ObtenerRolesAlumnos();
-		$hola = array();
-		foreach($nombres as $roles)
-		{
-			echo "rol: $roles[6]-";
-			$hola[] = $roles;
-		}
-		echo "hola: $hola[1]";
-		$con = ObtenerContrasenasAlumnos();
-		for($i=0;$i<sizeof($con);$i++)
-		{
-			echo "pass : $con[$i]";
-		}
-		?>
+		
 	</div>
 		
 </body>  

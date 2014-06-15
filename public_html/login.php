@@ -1,23 +1,10 @@
 
 <?php
-	if (is_null($title)) {
-		$title = "Titulo nulo";
-	}
 
-	if (is_null($header)) {
-		$header = "header nulo";
-	}
-
-	if (is_null($content)) {
-		$content = "Contenido nulo";
-	}
-
-	if (is_null($sidebar)) {
-		$sidebar = "Sidebar nulo";
-	}
-	include("../php/getAlumnos.php");
-	$roles = ObtenerRolesAlumnos();
-	$passes = ObtenerContrasenasAlumnos();
+	include("../php/Alumno.php");
+	$alumno = new Alumno();
+	$roles = $alumno->getRolesAlumnos();
+	$passes = $alumno->getContrasenasAlumnos();
 
 ?>
 
@@ -46,6 +33,7 @@
 		    <?php
 		      }
 		    ?>
+
 		    var User = document.getElementById("rol").value;
             var Pass = document.getElementById("contrasena").value;
             var i = 0;
@@ -84,18 +72,20 @@
 		
 		<div id="contentHeader">
 			<div id="BH">
-			<ul>
-				<li><a href="ingresarPostulacion.php">Postular<a/><li>
-				<li><a href="login.php">Login<a/><li>
-				<li><a href="login.php">Logout<a/><li>
-			</ul>
+				<ul>
+					<li><a href="ingresarPostulacion.php">Postular<a/><li>
+					<li><a href="login.php">Login<a/><li>
+					<li><a href="login.php">Logout<a/><li>
+				</ul>
 			</div>
 		</div>
 	</div>
 
 	<div id="sidebar">
-		<?php echo $sidebar; ?>
-		
+	
+				<li><a href="ingresarPostulacion.php">Postular<a/><li>
+				<li><a href="login.php">Login<a/><li>
+				<li><a href="login.php">Logout<a/><li>
 	</div>
 
 	<div id="content">

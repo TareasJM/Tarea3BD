@@ -54,6 +54,10 @@
 	    </script>
 	';
 	$title = 'Ingrese Información de postulación';
+	$sidebar = $sidebar.'
+				<li><a href="ingresarPostulacion.php">Postular<a/><li>
+				<li><a href="login.php">Login<a/><li>
+				<li><a href="login.php">Logout<a/><li>';
 	$content ='
 		 
 		<ul>  

@@ -19,3 +19,10 @@ INSERT INTO AREA (nombre,n_colaboradores,horario) values ('Concursos',0,'3-4');
 INSERT INTO AREA (nombre,n_colaboradores,horario) values ('Alimentación',0,'5-8');
 INSERT INTO AREA (nombre,n_colaboradores,horario) values ('Registro Visual',0,'1-10');
 INSERT INTO AREA (nombre,n_colaboradores,horario) values ('Audio',0,'5-10');
+
+INSERT INTO Permiso (agregar_co_area,cambiar_talla,ver_postulaciones) values (1,1,1);
+INSERT INTO Permiso (agregar_co_area,cambiar_talla,ver_postulaciones) values (0,2,1);
+INSERT INTO Permiso (agregar_co_area,cambiar_talla,ver_postulaciones) values (0,0,2);
+
+INSERT INTO Coordinador (id_permiso,rol,tipo) values (1,'201273589-0',1);
+INSERT INTO Coordinador (id_permiso,rol,tipo) values (2,'202173589-2',2);
