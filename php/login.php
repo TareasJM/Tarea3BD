@@ -20,6 +20,7 @@
 	foreach ($poc as $pocs)
 	{
 		$tipo = $pocs[3];
+		$rol = $pocs[0];
 	}
     if ($alumno == FALSE ) {
         header("Location: ../public_html/login.php");

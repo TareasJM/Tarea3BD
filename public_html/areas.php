@@ -4,7 +4,22 @@
 	include("../php/Area.php");
 	$area = new Area();
 	$areas = $area->getAreas();
-
+	function deleteAreaByName()
+	{
+		include("bd.php");
+		$query = "DELETE FROM area where nombre = '".$nombre."'";
+		$result = pg_query($query);
+		$row = pg_num_rows($result);
+		if($row == 0)
+		{
+			// echo "<script type='text/javascript'>alert('No ha sido borrado');</script>";
+			// return $this->load->view('../puclic_html/areas.php');
+			header("Location: ../public_html/areas.php");
+		}
+		// echo "<script type='text/javascript'>alert('Borrado con éxito');</script>";
+		// return $this->load->view('../puclic_html/areas.php');
+		header("Location: ../public_html/areas.php");
+	}
 ?>
 
 <!DOCTYPE html>  
@@ -33,9 +48,8 @@
 
 	<div id="sidebar">
 	
-				<li><a href="ingresarPostulacion.php">Postular<a/><li>
-				<li><a href="login.php">Login<a/><li>
-				<li><a href="login.php">Logout<a/><li>
+				<li><a href="agregararea.php">Agregar Área<a/><li>
+
 	</div>
 
 	<div id="content" style="color:black">
@@ -43,17 +57,18 @@
 		<table class="table" style="color:black">
 		<tbody>
 		  <?php 
-			foreach($areas as $a)
-			{?>
+			foreach ($areas as $a) 
+			{	?>
             	<tr style="margin-rigth:500px">
             		<td><h4><?php echo $a[1] ?></h4></td>	
-            		<td style="margin-left:500px"><input value="Editar" class="btn btn-info"/></td>
-            		<td><input value="Eliminar" class="btn btn-danger"/></td>
+            		<td style="margin-left:500px"><a class="btn btn-info">Editar</a></td>
+            		<td><a class="btn btn-danger">Eliminar</a></td>
+            		
             	</tr>
             <?php } ?>
 		</tbody>
 		</table> 
 	</div>
-		
+		  
 </body>  
 </html> 
