@@ -19,6 +19,7 @@
 	<title><?php echo $title; ?></title>  
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
 	<link rel="stylesheet" type="text/css" href="css/master.css">
+    <!-- <link href="css/bootstrap.css" rel="stylesheet" media="screen"> -->
 	<?php echo $css; ?>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 	<?php echo $script; ?>
@@ -43,7 +44,7 @@
 				<?php
 				if($_SESSION['tipo'] == 1){ ?>
 				<li><a href="ingresarPostulacion.php">MisDatos<a/><li>
-				<li><a href="login.php">Áreas<a/><li>
+				<li><a href="areas.php">Áreas<a/><li>
 				<li><a href="login.php">Coordinaodres de Área<a/><li>
 				<li><a href="login.php">Noticias<a/><li>
 				<li><a href="login.php">Postulantes<a/><li>
@@ -51,8 +52,6 @@
 				<li><a href="login.php">Seleccionados<a/><li>
 
 				<?php } ?>
-				
-
 	</div>
 
 	<div id="content">
