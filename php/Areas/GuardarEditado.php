@@ -1,6 +1,6 @@
 <?php
 
-	include("bd.php");
+	include("../bd.php");
 	session_start();
 	function EditAreaByID($id,$nombre,$ncol,$horario)
 	{
