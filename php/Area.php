@@ -34,6 +34,32 @@ class Area
 		return $area;
 	}
 
+	function getAreaCoordinador($id_coordinador)
+	{
+		include("bd.php");
+		$query = "SELECT * FROM coordina WHERE id_coordinador = '".$id_coordinador."'";
+		$result = pg_query($query);
+		$coordina = array();
+		while ($row = pg_fetch_row($result))
+		{	
+			array_push($coordina, $row);
+		}
+		return $coordina;
+	}
+
+
+	function getPostulanteArea($id_area)
+	{
+		include("bd.php");
+		$query = "SELECT * FROM Postula WHERE id_area = '".$id_area."'";
+		$result = pg_query($query);
+		$postula = array();
+		while ($row = pg_fetch_row($result))
+		{	
+			array_push($postula, $row);
+		}
+		return $postula;
+	}
 	// function deleteAreaByName($nombre)
 	// {
 	// 	include("bd.php");

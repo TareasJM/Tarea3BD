@@ -75,6 +75,7 @@ class Alumno
 		while ($row = pg_fetch_row($result)) 
 		{
 			array_push($alumno, $row);
+			
 		}
 		return $alumno;
 	}
@@ -104,6 +105,32 @@ class Alumno
 			array_push($alumno, $row);
 		}
 		return $alumno;
+	}
+
+	function getPostulantes()
+	{
+		include("bd.php");
+		$query = "SELECT *FROM Postulante";
+		$result = pg_query($query);
+		$postulante = array();
+		while ($row = pg_fetch_row($result)) 
+		{
+			array_push($postulante, $row);
+		}
+		return $postulante;
+	}
+
+	function getPostulante($id_postulante)
+	{
+		include("bd.php");
+		$query = "SELECT *FROM postulante WHERE id_postulante = '".$id_postulante."'";
+		$result = pg_query($query);
+		$postulante = array();
+		while ($row = pg_fetch_row($result)) 
+		{
+			array_push($postulante, $row);
+		}
+		return $postulante;
 	}
 
 }

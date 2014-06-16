@@ -25,7 +25,7 @@
 				
 				<?php if(!isset($_SESSION['alumno'])){?>
 				<li><a href="ingresarPostulacion.php">Postular<a/><li>
-				<li><a href="../php/login.php">Login<a/><li>
+				<li><a href="login.php">Login<a/><li>
 				<?php }?>
 				<?php if(isset($_SESSION['alumno'])){?>
 				<li><a><?=$_SESSION['alumno'][3]?></a></li>
@@ -44,14 +44,14 @@
 				<li><a href="areas.php">Áreas<a/></li>
 				<li><a href="coAreas.php">Coordinadores de Área<a/></li>
 				<li><a href="Noticias.php">Noticias<a/></li>
-				<li><a href="login.php">Postulantes<a/></li>
+				<li><a href="VerPostulantes.php">Postulantes<a/></li>
 				<li><a href="login.php">Colaboradores Seleccionado<a/></li>
 				<?php } 
 				else if($_SESSION['tipo'] == 2)
 				{?>
 				<li><a href="ingresarPostulacion.php">MisDatos<a/></li>
 				<li><a href="Noticias.php">Noticias<a/></li>
-				<li><a href="login.php">Postulantes<a/></li>
+				<li><a href="VerPostulantes.php">Postulantes<a/></li>
 				<li><a href="login.php">Colaboradores Seleccionado<a/></li>
 				<?php }?>
 
