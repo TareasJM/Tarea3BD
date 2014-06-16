@@ -14,6 +14,19 @@ class Noticia
 		return $noticias;
 	}
 
+	function EditNoticia($id)
+	{
+		include("bd.php");
+		$query = "SELECT * FROM noticia WHERE id_noticia = '".$id."'";
+		$result = pg_query($query);
+		$noticia = array();
+		while ($row = pg_fetch_row($result))
+		{	
+			array_push($noticia, $row);
+		}
+		return $noticia;
+	}
+
 }
 
 ?>

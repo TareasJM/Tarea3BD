@@ -1,10 +1,6 @@
-<?php 
-	session_start();
-	include("../php/Area.php");
-	$area = new Area();
-	$areas = $area->getAreas();
+<?php
+session_start();
 ?>
-
 <!DOCTYPE html>  
 <head>  
 	<title><?php echo $title; ?></title>  
@@ -36,26 +32,22 @@
 
 	<div id="sidebar">
 	
-				<li><a href="Noticias.php">Atrás<a/></li>
+				<li><a href="ingresarPostulacion.php">Agregar Área<a/><li>
 
 	</div>
 
 	<div id="content" style="color:black">
-
-
 		<ul style="text-align:center"> 
-			<h1>Crear Noticia</h1>
-			<form action="../php/Noticias/agregarNoticia.php" method="POST" onsubmit="validateForm()" >  
-				<li>Titular:<br><input type="text" name="titular" id="titular" /></li> 
-				<li>Contenido:<br><textarea style=" margin:auto; resize:none; width:50%; height:100px; border: 1px solid blue; position:static" type="text" name="contenido" id="contenido" ></textarea></li> 
-				<li>Área:<br><select name="area" id="area" >
-				<?php foreach ($areas as $area) {?>
-	    		<option value="<?=$area[0] ?>"><?=$area[1]?></option>;
-				<?php }?>
-				</select></li>
-				<li><input value="Agregar" class="btn btn-info" type="submit"/></li>
-		</ul>
 
+
+			<h1>Editar Noticia</h1>
+			<form action="../php/Noticias/GuardarEditado.php" method="POST" onsubmit="validateForm()" >  
+				<li><input type="hidden" name="id_noticia" id="id_noticia" value="<?= $_SESSION['noticia'][0] ?>"/> </li> 
+				<li>Titular:<br><input type="text" name="titular" id="titular" value="<?= $_SESSION['noticia'][3] ?>"/></li> 
+				<li>Contenido:<br><textarea style=" margin:auto; resize:none; width:50%; height:100px; border: 1px solid blue; position:static" type="text" name="contenido" id="contenido" ><?= $_SESSION['noticia'][4] ?></textarea></li> 
+				<li><input value="Guardar" class="btn btn-info" type="submit"/></li>
+			</form>
+		</ul>
 	</div>
 		  
 </body>  

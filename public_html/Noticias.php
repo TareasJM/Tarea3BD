@@ -46,14 +46,24 @@
 	<div id="content" style="color:black">
 		<h2 style="text-align:center">Noticias</h2>
 		<table class="table" style="color:black">
+		<thead>
+			<?php if(count($noticias)>0)
+			{?>
+			  	<tr>
+				  	<th><h2>Titulo</h2></th>
+				  	<th><h2>Contenido</h2></th>
+				</tr>
+			<?php } ?>
+		</thead>
 		<tbody>
 		  <?php 
 			foreach ($noticias as $a) 
 			{	?>
             	<tr style="margin-rigth:500px">
-            		<td><h4><?php echo $a[1] ?></h4></td>	
-            		<td style="margin-left:500px"><a  href="../php/Areas/EditarArea.php?nombre=<?php echo $a[1] ?>" class="btn btn-info">Editar</a></td>
-            		<td><a href="../php/Areas/EliminarArea.php?nombre=<?php echo $a[1] ?>" class="btn btn-danger">Eliminar</a></td>
+            		<td><h4><?php echo $a[3] ?></h4></td>	
+            		<td><h4><?php echo $a[4] ?></h4></td>	
+            		<td style="margin-left:500px"><a  href="../php/Noticias/EditarNoticia.php?id_noticia=<?php echo $a[0] ?>" class="btn btn-info">Editar</a></td>
+            		<td><a href="../php/Noticias/EliminarNoticia.php?id_noticia=<?php echo $a[0] ?>" class="btn btn-danger">Eliminar</a></td>
             		
             	</tr>
             <?php } ?>

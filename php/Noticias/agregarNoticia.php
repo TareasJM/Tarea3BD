@@ -5,7 +5,7 @@
 	session_start();
 	function agregarNoticia($id_coordinador,$id_area,$titular,$contenido,$fecha){
 		
-		$query = "INSERT INTO noticia VALUES ('".$id_coordinador."',
+		$query = "INSERT INTO noticia (id_coordinador,id_area,titular,contenido,fecha) VALUES ('".$id_coordinador."',
 											 ".$id_area.",
 											'".$titular."',
 											'".$contenido."',
