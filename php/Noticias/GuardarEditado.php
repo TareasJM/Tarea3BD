@@ -1,6 +1,6 @@
 <?php
 
-	include("bd.php");
+	include("../bd.php");
 	date_default_timezone_set('UTC');
 	$fecha = date("d-m-Y");
 	session_start();
