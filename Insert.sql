@@ -24,5 +24,11 @@ INSERT INTO Permiso (agregar_co_area,cambiar_talla,ver_postulaciones) values (1,
 INSERT INTO Permiso (agregar_co_area,cambiar_talla,ver_postulaciones) values (0,2,1);
 INSERT INTO Permiso (agregar_co_area,cambiar_talla,ver_postulaciones) values (0,0,2);
 
+
+INSERT INTO ALUMNO(rol,id_carrera,rut,nombre,correo,contrasena,telefono,talla) VALUES ('201273589-0','3','18275215-0','Marco','marco.salinas.12@sansano.usm.cl','salinas','54112127',null);
+INSERT INTO ALUMNO(rol,id_carrera,rut,nombre,correo,contrasena,telefono,talla) VALUES ('201273589-2','3','18275215-0','Marco2','marco.salinas.12@sansano.usm.cl','salinas2','54112127',null);
+
 INSERT INTO Coordinador (id_permiso,rol,tipo) values (1,'201273589-0',1);
-INSERT INTO Coordinador (id_permiso,rol,tipo) values (2,'202173589-2',2);
+INSERT INTO Coordinador (id_permiso,rol,tipo) values (2,'201273589-2',2);
+
+INSERT INTO COORDINA (ID_COORDINADOR,ID_AREA) VALUES ('2','1')
