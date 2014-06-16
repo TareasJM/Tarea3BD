@@ -17,9 +17,14 @@ session_start();
 		<div id="contentHeader">
 			<div id="BH">
 				<ul>
+					<?php if(!isset($_SESSION['alumno'])){?>
 					<li><a href="ingresarPostulacion.php">Postular<a/><li>
-					<li><a href="login.php">Login<a/><li>
-					<li><a href="login.php">Logout<a/><li>
+					<li><a href="../php/login.php">Login<a/><li>
+					<?php }?>
+					<?php if(isset($_SESSION['alumno'])){?>
+					<li><a><?=$_SESSION['alumno'][3]?></a></li>
+					<li><a href="../php/logout.php">Logout<a/><li>
+					<?php }?>
 				</ul>
 			</div>
 		</div>
@@ -33,14 +38,16 @@ session_start();
 
 	<div id="content" style="color:black">
 		<ul style="text-align:center"> 
+
+
 			<h1>Editar Área</h1>
 			<form action="../php/Areas/GuardarEditado.php" method="POST" >
-				<li><input type="hidden" name="id" id="id" value="<?= $_SESSION['area'][0] ?>"/> </li> 
-				<li>Nombre:<br><input type="text" name="nombre" id="nombre" placeholder="<?= $_SESSION['area'][1] ?>"/>
+				<li><input type="hidden" name="id_area" id="id_area" value="<?= $_SESSION['area'][0] ?>"/> </li> 
+				<li>Nombre:<br><input type="text" name="nombre" id="nombre" value="<?= $_SESSION['area'][1] ?>"/>
 				</li> 
-				<li>N°Colaboradores:<br><input type="text" name="ncol" id="ncol" placeholder="<?= $_SESSION['area'][2] ?>"/>
+				<li>N°Colaboradores:<br><input type="text" name="ncol" id="ncol" value="<?= $_SESSION['area'][2] ?>"/>
 				</li> 
-				<li>Horario:<br><input type="text" name="horario" id="horario" placeholder="<?= $_SESSION['area'][3] ?>"/>
+				<li>Horario:<br><input type="text" name="horario" id="horario" value="<?= $_SESSION['area'][3] ?>"/>
 				</li>
 				<li><input value="Editar" class="btn btn-info" type="submit"/></li>
 		</ul>

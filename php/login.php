@@ -20,7 +20,7 @@
 	foreach ($poc as $pocs)
 	{
 		$tipo = $pocs[3];
-		$rol = $pocs[0];
+		$id = $pocs[0];
 	}
     if ($alumno == FALSE ) {
         header("Location: ../public_html/login.php");
@@ -30,6 +30,7 @@
     	session_start();
 		$_SESSION['alumno'] = $alumno;
 		$_SESSION['tipo'] = $tipo;
+		$_SESSION['id_coordinador'] = $id;
         header("Location: ../public_html/index.php");
     }
  ?>

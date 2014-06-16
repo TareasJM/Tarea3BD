@@ -1,11 +1,10 @@
 	         
 <?php
 
-	include("../php/Area.php");
+	include("../php/Noticia.php");
+	$noticia = new Noticia();
+	$noticias = $noticia->getNoticias();
 	session_start();
-	$area = new Area();
-	$areas = $area->getAreas();
-
 ?>
 
 <!DOCTYPE html>  
@@ -23,7 +22,7 @@
 		
 		<div id="contentHeader">
 			<div id="BH">
-				<ul>			
+				<ul>
 					<?php if(!isset($_SESSION['alumno'])){?>
 					<li><a href="ingresarPostulacion.php">Postular<a/><li>
 					<li><a href="../php/login.php">Login<a/><li>
@@ -39,16 +38,17 @@
 
 	<div id="sidebar">
 	
-				<li><a href="agregararea.php">Agregar Área<a/></li>
-				<li><a href="index.php">Atrás</a></li>
+				<li><a href="crearNoticia.php">Crear Noticia<a/></li>
+				<li><a href="index.php">Atrás<a/></li>
+
 	</div>
 
 	<div id="content" style="color:black">
-		<h2 style="text-align:center">Áreas</h2>
+		<h2 style="text-align:center">Noticias</h2>
 		<table class="table" style="color:black">
 		<tbody>
 		  <?php 
-			foreach ($areas as $a) 
+			foreach ($noticias as $a) 
 			{	?>
             	<tr style="margin-rigth:500px">
             		<td><h4><?php echo $a[1] ?></h4></td>	

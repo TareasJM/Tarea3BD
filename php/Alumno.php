@@ -19,6 +19,18 @@ class Alumno
 		return $alumnos;
 	}
 
+	function getAlumno($rol)
+	{
+		include("bd.php");
+		$query = "SELECT * FROM alumno where rol = '".$rol."'";
+		$result = pg_query($query);
+		$alumnos = array();
+		while ($row = pg_fetch_row($result)){
+			array_push($alumnos, $row);
+			}
+		return $alumnos;
+	}
+
 
 	function getRolesAlumnos()
 	{
@@ -79,6 +91,21 @@ class Alumno
 		}
 		return TRUE;
 	}
+
+
+	function getCoordinadores()
+	{
+		include("bd.php");
+		$query = "SELECT *FROM Coordinador WHERE tipo = '2'";
+		$result = pg_query($query);
+		$alumno = array();
+		while ($row = pg_fetch_row($result)) 
+		{
+			array_push($alumno, $row);
+		}
+		return $alumno;
+	}
+
 }
 
 ?>

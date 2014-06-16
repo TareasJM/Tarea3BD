@@ -1,4 +1,6 @@
-
+<?php 
+	session_start();
+?>
 <!DOCTYPE html>  
 <head>  
 	<title><?php echo $title; ?></title>  
@@ -15,9 +17,14 @@
 		<div id="contentHeader">
 			<div id="BH">
 				<ul>
+					<?php if(!isset($_SESSION['alumno'])){?>
 					<li><a href="ingresarPostulacion.php">Postular<a/><li>
-					<li><a href="login.php">Login<a/><li>
-					<li><a href="login.php">Logout<a/><li>
+					<li><a href="../php/login.php">Login<a/><li>
+					<?php }?>
+					<?php if(isset($_SESSION['alumno'])){?>
+					<li><a><?=$_SESSION['alumno'][3]?></a></li>
+					<li><a href="../php/logout.php">Logout<a/><li>
+					<?php }?>
 				</ul>
 			</div>
 		</div>
@@ -25,8 +32,7 @@
 
 	<div id="sidebar">
 	
-				<li><a href="ingresarPostulacion.php">Agregar Área<a/><li>
-
+				<li><a href="areas.php">Atrás</a></li>
 	</div>
 
 	<div id="content" style="color:black">

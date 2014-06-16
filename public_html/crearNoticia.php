@@ -1,11 +1,5 @@
-	         
-<?php
-
-	include("../php/Area.php");
+<?php 
 	session_start();
-	$area = new Area();
-	$areas = $area->getAreas();
-
 ?>
 
 <!DOCTYPE html>  
@@ -23,7 +17,7 @@
 		
 		<div id="contentHeader">
 			<div id="BH">
-				<ul>			
+				<ul>
 					<?php if(!isset($_SESSION['alumno'])){?>
 					<li><a href="ingresarPostulacion.php">Postular<a/><li>
 					<li><a href="../php/login.php">Login<a/><li>
@@ -39,26 +33,22 @@
 
 	<div id="sidebar">
 	
-				<li><a href="agregararea.php">Agregar Área<a/></li>
-				<li><a href="index.php">Atrás</a></li>
+				<li><a href="Noticias.php">Atrás<a/></li>
+
 	</div>
 
 	<div id="content" style="color:black">
-		<h2 style="text-align:center">Áreas</h2>
-		<table class="table" style="color:black">
-		<tbody>
-		  <?php 
-			foreach ($areas as $a) 
-			{	?>
-            	<tr style="margin-rigth:500px">
-            		<td><h4><?php echo $a[1] ?></h4></td>	
-            		<td style="margin-left:500px"><a  href="../php/Areas/EditarArea.php?nombre=<?php echo $a[1] ?>" class="btn btn-info">Editar</a></td>
-            		<td><a href="../php/Areas/EliminarArea.php?nombre=<?php echo $a[1] ?>" class="btn btn-danger">Eliminar</a></td>
-            		
-            	</tr>
-            <?php } ?>
-		</tbody>
-		</table> 
+
+
+		<ul style="text-align:center"> 
+			<h1>Crear Noticia</h1>
+			<form action="../php/Areas/AgregarArea.php" method="POST" onsubmit="validateForm()" >  
+				<li>Titular:<br><input type="text" name="titular" id="titular" /></li> 
+				<li>Contenido:<br><textarea style=" margin:auto; resize:none; width:50%; height:100px; border: 1px solid blue; position:static" type="text" name="contenido" id="contenido" ></textarea></li> 
+				<li>Área:<br><input type="text" name="area" id="area" /></li>
+				<li><input value="Agregar" class="btn btn-info" type="submit"/></li>
+		</ul>
+
 	</div>
 		  
 </body>  

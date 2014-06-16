@@ -10,20 +10,7 @@
 		return $alumnos;
 	}
 
-	function ObtenerAlumnos()
-	{
-		include("bd.php");
-		$query = "SELECT * FROM alumno";
-		$result = pg_query($query);
-		$alumnos = array();
-		while ($row = pg_fetch_row($result)){
-			array_push($alumnos, $row);
-			}
-			foreach ($alumnos as $items) {
-				echo "rol: $items[0]/";
-			}
-		return $alumnos;
-	}
+	
 
 	function ObtenerRolesAlumnos()
 	{

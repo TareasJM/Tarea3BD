@@ -1,17 +1,7 @@
 
 <?php
-	if (is_null($title)) {
-		$title = "Titulo nulo";
-	}
 
-	if (is_null($content)) {
-		$content = "Contenido nulo";
-	}
-
-	if (is_null($sidebar)) {
-		$sidebar = "Sidebar nulo";
-	}
-
+	session_start();
 ?>
 
 <!DOCTYPE html>  
@@ -32,26 +22,39 @@
 		<div id="contentHeader">
 			<div id="BH">
 			<ul>
+				
+				<?php if(!isset($_SESSION['alumno'])){?>
 				<li><a href="ingresarPostulacion.php">Postular<a/><li>
-				<li><a href="login.php">Login<a/><li>
+				<li><a href="../php/login.php">Login<a/><li>
+				<?php }?>
+				<?php if(isset($_SESSION['alumno'])){?>
+				<li><a><?=$_SESSION['alumno'][3]?></a></li>
 				<li><a href="../php/logout.php">Logout<a/><li>
+				<?php }?>
 			</ul>
 			</div>
 		</div>
 	</div>
 
 	<div id="sidebar">
+				<?php echo $sidebar; ?>
 				<?php
 				if($_SESSION['tipo'] == 1){ ?>
-				<li><a href="ingresarPostulacion.php">MisDatos<a/><li>
-				<li><a href="areas.php">Áreas<a/><li>
-				<li><a href="login.php">Coordinaodres de Área<a/><li>
-				<li><a href="login.php">Noticias<a/><li>
-				<li><a href="login.php">Postulantes<a/><li>
-				<li><a href="login.php">Colaboradores<a/><li>
-				<li><a href="login.php">Seleccionados<a/><li>
+				<li><a href="ingresarPostulacion.php">MisDatos<a/></li>
+				<li><a href="areas.php">Áreas<a/></li>
+				<li><a href="coAreas.php">Coordinadores de Área<a/></li>
+				<li><a href="Noticias.php">Noticias<a/></li>
+				<li><a href="login.php">Postulantes<a/></li>
+				<li><a href="login.php">Colaboradores Seleccionado<a/></li>
+				<?php } 
+				else if($_SESSION['tipo'] == 2)
+				{?>
+				<li><a href="ingresarPostulacion.php">MisDatos<a/></li>
+				<li><a href="Noticias.php">Noticias<a/></li>
+				<li><a href="login.php">Postulantes<a/></li>
+				<li><a href="login.php">Colaboradores Seleccionado<a/></li>
+				<?php }?>
 
-				<?php } ?>
 	</div>
 
 	<div id="content">

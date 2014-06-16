@@ -1,11 +1,10 @@
 	         
 <?php
 
-	include("../php/Area.php");
+	include("../php/Alumno.php");
+	$alumno = new Alumno();
+	$co = $alumno->getCoordinadores();
 	session_start();
-	$area = new Area();
-	$areas = $area->getAreas();
-
 ?>
 
 <!DOCTYPE html>  
@@ -23,7 +22,7 @@
 		
 		<div id="contentHeader">
 			<div id="BH">
-				<ul>			
+				<ul>
 					<?php if(!isset($_SESSION['alumno'])){?>
 					<li><a href="ingresarPostulacion.php">Postular<a/><li>
 					<li><a href="../php/login.php">Login<a/><li>
@@ -39,24 +38,33 @@
 
 	<div id="sidebar">
 	
-				<li><a href="agregararea.php">Agregar Área<a/></li>
+				<li><a href="agregarCoArea.php">Agregar Coordinador<a/></li>
 				<li><a href="index.php">Atrás</a></li>
 	</div>
 
 	<div id="content" style="color:black">
-		<h2 style="text-align:center">Áreas</h2>
+		<h2 style="text-align:center">Coordinadores de Áreas</h2>
 		<table class="table" style="color:black">
 		<tbody>
 		  <?php 
-			foreach ($areas as $a) 
-			{	?>
+
+			foreach ($co as $a) 
+			{	
+				$co2 = $alumno->getAlumno($a[2]);
+				
+				foreach($co2 as $a2)
+					{ ?>
             	<tr style="margin-rigth:500px">
-            		<td><h4><?php echo $a[1] ?></h4></td>	
-            		<td style="margin-left:500px"><a  href="../php/Areas/EditarArea.php?nombre=<?php echo $a[1] ?>" class="btn btn-info">Editar</a></td>
-            		<td><a href="../php/Areas/EliminarArea.php?nombre=<?php echo $a[1] ?>" class="btn btn-danger">Eliminar</a></td>
+            		<td></td>
+            		<td></td>
+            		<td></td>
+            		<td><h4><?php echo $a2[3] ?></h4></td>	
+            		<td><h4><?php echo $a2[0] ?></h4></td>	
+            		<td style="margin-left:500px"><a  href="../php/CoAreas/EditarCoArea.php?rol=<?php echo $a2[0] ?>" class="btn btn-info">Editar</a></td>
+            		<td><a href="../php/CoAreas/EliminarCoArea.php?rol=<?php echo $a2[0] ?>" class="btn btn-danger">Eliminar</a></td>
             		
             	</tr>
-            <?php } ?>
+            <?php }} ?>
 		</tbody>
 		</table> 
 	</div>
