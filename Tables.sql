@@ -32,7 +32,7 @@ CREATE TABLE Coordinador (
 	id_coordinador	SERIAL primary key not null,
 	id_permiso		int references Permiso(id_permiso) not null,
 	rol				varchar(100) references Alumno(rol) not null,
-	tipo 			varchar(100) not null
+	tipo 			int not null
 );
 
 CREATE TABLE Selecciona (

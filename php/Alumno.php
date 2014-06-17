@@ -157,23 +157,51 @@ class Alumno
 			if (!in_array($row[3], $agregados)) {
 				array_push($todo, $row);
 				array_push($agregados, $row[3]);
-				echo "+ $row[3] <br>";
 			}
-			else{
-				for ($i=0; $i < count($todo) ; $i++) { 
-					if ($row[3] == $todo[i][3]) {
-						echo "$row[3] = ".$todo[i][3]." <br>";
-						$todo[i][12] = $todo[i][12]." +aasdasd ".$row[12];
-						$todo[i][14] = $todo[i][14]." +asdasdad ".$row[14];
-					}
-					else{
-						echo "$row[3] =?".$todo[i][3]." <br>";
-					}
-				}
-			}
+
 		}
 		return $todo;
 	}
+
+	function getPostulaArea($id_postulante)
+	{
+		include("bd.php");
+		$query = "SELECT *FROM POSTULA P, AREA A WHERE P.ID_POSTULANTE = '".$id_postulante."' AND A.ID_AREA = P.ID_AREA";
+		$result = pg_query($query);
+		$postula = array();
+		while ($row = pg_fetch_row($result)) 
+		{
+			array_push($postula, $row);
+		}
+		return $postula;
+	}
+
+	function getInfoGeneralColaboradores($id_area)
+	{
+		include("bd.php");
+		$query = "SELECT *FROM CARRERA c, ALUMNO a,POSTULA p, POSTULANTE z, Area w WHERE  p.id_area = '".$id_area."' and w.id_area = '".$id_area."' and p.estado = true and c.id_carrera = a.id_carrera and p.id_postulante = z.id_postulante and z.rol = a.rol ORDER BY a.nombre ASC";
+		$result = pg_query($query);
+		$todo = array();
+		while ($row = pg_fetch_row($result)) {
+				array_push($todo, $row);
+
+		}
+		return $todo;
+	}
+
+	function getCarrera($id_carrera)
+	{
+		include("bd.php");
+		$query = "SELECT nombre From Carrera where id_carrera = '".$id_carrera."'";
+		$result = pg_query($query);
+		$nombre;
+		while ($row = pg_fetch_assoc($result)) {
+				$nombre = $row['nombre'];
+		}
+		return $nombre;
+
+	}
+
 }
 
 ?>

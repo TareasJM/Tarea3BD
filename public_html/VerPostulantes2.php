@@ -1,32 +1,11 @@
 	         
 <?php
 
-	include("../php/Alumno.php");
-	include("../php/Area.php");
+    include("../php/Alumno.php");
 	session_start();
-	$postulante = new Alumno();
-	$postulantes = array();
-	$area = new Area();
+	$postulante = new Alumno();	
 	$id = $_SESSION['id_area'];
-	$aux = $area->getPostulanteArea($id);
-	foreach ($aux as $key) 
-	{	
-			// echo "key[0] --> id postulante = $key[0]";
-	 	foreach ($postulante->getPostulante($key[0]) as $value)
-	 	{
-	 		// echo "value[1] -->$value[1] = rol ";
-	 		$alumno = $postulante->getAlumno($value[1]);
-	 		
-	 		foreach ($alumno as $value2)
-	 		{	
-	 			// echo "value2[0]---> $value2[5]";
-	 			array_push($postulantes, $value2);
-	 			// echo "postulantes[1]---> $postulantes[1]";
-	 		}
-	 		
-	 	}
-	 	
-	} 
+	$infoPostulante = $postulante->getInfoGeneralPostulante($id); 
 
 ?>
 
@@ -67,14 +46,78 @@
 	<div id="content" style="color:black">
 		<h2 style="text-align:center">Postulantes</h2>
 
-		<ul style="text-align:center">
-			<?php 
-				foreach ($postulantes as $postu) {?>
+		<table class="table" style="color:white; text-align:center">
+				<thead>
+					<?php if(count($infoPostulante)>0)
+					{?>
+					  	<tr>
+						  	<th><h6>Nombre</h6></th>
+						  	<th><h6>Carrera</h6></th>
+						  	<th><h6>Prioridad</h6></th>
+						  	<th><h6>Estado</h6></th>
+						  	<th><h6>Áreas</h6></th>
+						  	<th></th>
+						  	<th><h6>Prioridad</h6></th>
+						  	<th></th>
+						  	<th><h6>Estado</h6></th>
 
-				<li><a href="" style="color:black"><h4><?=$postu[3]?></h4></a></li>
 
-				<?php }?>
-		</ul>
+						</tr>
+					<?php } ?>
+				</thead>
+				<tbody>
+					
+						<?php foreach ($infoPostulante as $postu)
+						{	
+							$info = $postulante->getPostulaArea($postu[11]);
+							for ($j=0; $j < 3; $j++) 
+							{ 
+								if($id == $info[$j][1])
+								{
+								?>	
+
+								<tr>
+								<td><h4><?php echo $postu[6] ?></h4></td>
+								<td><h4><?php echo $postu[1] ?></h4></td>
+								<?php for ($i=0; $i < 3; $i++) { 
+									if($info[$i][1] == $id)
+									{?>
+									<td><h4><?= $info[$i][3]?></h4></td>
+									<td><h4><?= $info[$i][2]?></h4></td>
+							<?php 	}
+								}
+							?>
+								<?php for ($i=0; $i < 3; $i++) { 
+									if($info[$i][1] != $id)
+									{?>
+									<td><h4><?= $info[$i][5]?></h4></td>
+							<?php 	}
+								}
+							?>
+								<?php for ($i=0; $i < 3; $i++) { 				
+								if($info[$i][1] != $id)
+									{?>
+									<td><h4><?= $info[$i][3]?></h4></td>
+							<?php 	}
+								}
+							?>
+								<?php for ($i=0; $i < 3; $i++) { 			
+								if($info[$i][1] != $id)
+									{?>
+									<td><h4><?= $info[$i][2]?></h4></td>
+							<?php 	}
+								}
+							?>
+								<td style="margin-left:500px"><a  href="../php/Colaboradores/SeleccionarColaborador2.php?id_postulante=<?php echo $postu[11] ?>&id_area=<?php echo $id ?>" class="btn btn-info">Seleccionar</a></td>
+	            		        <td><a href="../php/Colaboradores/DescartarColaborador2.php?id_postulante=<?php echo $postu[11] ?>&id_area=<?php echo $id ?>" class="btn btn-danger">Descartar</a></td>
+								</tr>
+
+	            		<?php 	}
+		            		}
+		            	}?>
+		  
+				</tbody>
+				</table> 	
 	
 	</div>
 		  

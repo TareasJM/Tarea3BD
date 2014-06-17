@@ -2,20 +2,11 @@
 <?php
 	
 
-	include("../php/Area.php");
     include("../php/Alumno.php");
 	session_start();
-	$area = new Area();
-	$postulante = new Alumno();
-	$areas = $area->getAreas();
-	$coordina = $area->getAreaCoordinador($_SESSION['id_coordinador']);
-	$tipo = $_SESSION['tipo'];
-	foreach ($coordina as $id_area) {
-		
-		$id = $id_area[1];
-	}
-	//echo "id = $id";
-	$infoPostulante = $postulante->getInfoGeneralPostulante($id);
+	$colaborador = new Alumno();
+	$id = $_SESSION['id_area'];
+	$infoColaborador = $colaborador->getInfoGeneralColaboradores($id);
 	/*$aux = $area->getPostulanteArea($id);
 	foreach ($aux as $key) 
 	{	
@@ -101,88 +92,89 @@
 		<h2 style="text-align:center; padding-bottom:20px">Áreas de Postulantes</h2>
 		<ul style="text-align:center">
 		
-		
-			<?php if($tipo == 1){
-				foreach ($areas as $area) {?>
-
-				<li style="padding-bottom:20px"><a href="../php/irAPostulantes2.php?id_area=<?php echo $area[0]?>" 
-				style="color:white" ><h4><?=$area[1]?></h4></a></li>
-
-				<?php }}
-				else
-					{
-					
-						?>
 				<table class="table" style="color:white; text-align:center">
 				<thead>
-					<?php if(count($infoPostulante)>0)
+					<?php if(count($infoColaborador)>0)
 					{?>
 					  	<tr>
 						  	<th><h6>Nombre</h6></th>
 						  	<th><h6>Carrera</h6></th>
-						  	<th><h6>Prioridad</h6></th>
-						  	<th><h6>Estado</h6></th>
+						  	<th><h6>Correo</h6></th>
+						  	<th><h6>Teléfono</h6></th>
+						  	<th><h6>Talla</h6></th>
 						  	<th><h6>Áreas</h6></th>
-						  	<th></th>
-						  	<th><h6>Prioridad</h6></th>
-						  	<th></th>
-						  	<th><h6>Estado</h6></th>
 
 
 						</tr>
 					<?php } ?>
 				</thead>
 				<tbody>
-					
-						<?php foreach ($infoPostulante as $postu)
-						{	
-							$info = $postulante->getPostulaArea($postu[11]);
-							for ($j=0; $j < 3; $j++) { 
-							if($id == $info[$j][1])
-							{
-							?>	
+						
 
+            		<?php foreach ($infoColaborador as $postu)
+						{
+							
+							$info = $colaborador->getPostulaArea($postu[11]);
+							?>
 							<tr>
+
+							<?php if($postu[10]== null)
+							{
+							?>
 								<td><h4><?php echo $postu[6] ?></h4></td>
 								<td><h4><?php echo $postu[1] ?></h4></td>
-								<?php for ($i=0; $i < 3; $i++) { 
-									if($info[$i][1] == $id)
-									{?>
-									<td><h4><?= $info[$i][3]?></h4></td>
-									<td><h4><?= $info[$i][2]?></h4></td>
-							<?php 	}
-								}
-							?>
-								<?php for ($i=0; $i < 3; $i++) { 
+								<td><h4><?php echo $postu[7] ?></h4></td>
+								<td><h4><?php echo $postu[9] ?></h4></td>
+								<td><h4>No Seleccionada</h4></td>
+								<?php for ($i=0; $i < 3; $i++) 
+								{ 	
 									if($info[$i][1] != $id)
-									{?>
-									<td><h4><?= $info[$i][5]?></h4></td>
-							<?php 	}
-								}
-							?>
-								<?php for ($i=0; $i < 3; $i++) { 				
-								if($info[$i][1] != $id)
-									{?>
-									<td><h4><?= $info[$i][3]?></h4></td>
-							<?php 	}
-								}
-							?>
-								<?php for ($i=0; $i < 3; $i++) { 			
-								if($info[$i][1] != $id)
-									{?>
-									<td><h4><?= $info[$i][2]?></h4></td>
-							<?php 	}
-								}
-							?>
-							<td style="margin-left:500px"><a  href="../php/Colaboradores/SeleccionarColaborador.php?id_postulante=<?php echo $postu[11] ?>&id_area=<?php echo $id ?>" class="btn btn-info">Seleccionar</a></td>
-            		        <td><a href="../php/Colaboradores/DescartarColaborador.php?id_postulante=<?php echo $postu[11] ?>&id_area=<?php echo $id ?>" class="btn btn-danger">Descartar</a></td>
+									{
+										if($info[$i][2] == t)
+										{?>
+											<td><h4><?php echo $info[$i][5] ?></h4></td>
+										<?php 
+										}
+										else
+										{?>
+											<td><h4>No</h4></td>
+										<?php
+										}
+									}
+								}?>
+								<td style="margin-left:500px"><a  href="../php/Talla/EditarTalla.php?rol_colaborador=<?php echo $postu[3] ?>" class="btn btn-info">Editar Talla</a></td>
 							</tr>
-
-		            		<?php }}}?>
+					<?php	}
+							else
+							{?>
+								<td><h4><?php echo $postu[6] ?></h4></td>
+								<td><h4><?php echo $postu[1] ?></h4></td>
+								<td><h4><?php echo $postu[7] ?></h4></td>
+								<td><h4><?php echo $postu[9] ?></h4></td>
+								<td><h4><?php echo $postu[10] ?></h4></td>
+							<?php for ($i=0; $i < 3; $i++) 
+								{ 	
+									if($info[$i][1] != $id)
+									{
+										if($info[$i][2] == t)
+										{?>
+											<td><h4><?php echo $info[$i][5] ?></h4></td>
+										<?php 
+										}
+										else
+										{?>
+											<td><h4>No</h4></td>
+										<?php
+										}
+									}
+								}?>
+								<td style="margin-left:500px"><a  href="../php/Talla/EditarTalla.php?rol_colaborador=<?php echo $postu[3] ?>" class="btn btn-info">Editar Talla</a></td>
+							</tr>
+					<?php	}
+						}?>
 		  
 				</tbody>
 				</table> 			
-				<?php }?>
 
 		</ul>
 	</div>
