@@ -3,9 +3,12 @@
 	
 
     include("../php/Alumno.php");
+    include("../php/Area.php");
 	session_start();
 	$colaborador = new Alumno();
+	$area = new Area();
 	$id = $_SESSION['id_area'];
+	$area = $area->getArea($id);
 	$infoColaborador = $colaborador->getInfoGeneralColaboradores($id);
 	/*$aux = $area->getPostulanteArea($id);
 	foreach ($aux as $key) 
@@ -85,11 +88,11 @@
 
 	<div id="sidebar">
 	
-				<li><a href="index.php">Atrás</a></li>
+				<li><a href="VerColaboradores.php">Atrás</a></li>
 	</div>
 
 	<div id="content" style="color:black">
-		<h2 style="text-align:center; padding-bottom:20px">Áreas de Postulantes</h2>
+		<h2 style="text-align:center; padding-bottom:20px"><?= $area[0][1] ?></h2>
 		<ul style="text-align:center">
 		
 				<table class="table" style="color:white; text-align:center">
@@ -130,15 +133,10 @@
 								{ 	
 									if($info[$i][1] != $id)
 									{
-										if($info[$i][2] == t)
+										if($info[$i][1] != $id and $info[$i][2] == t)
 										{?>
 											<td><h4><?php echo $info[$i][5] ?></h4></td>
 										<?php 
-										}
-										else
-										{?>
-											<td><h4>No</h4></td>
-										<?php
 										}
 									}
 								}?>
@@ -156,15 +154,10 @@
 								{ 	
 									if($info[$i][1] != $id)
 									{
-										if($info[$i][2] == t)
+										if($info[$i][1] != $id and $info[$i][2] == t)
 										{?>
 											<td><h4><?php echo $info[$i][5] ?></h4></td>
 										<?php 
-										}
-										else
-										{?>
-											<td><h4>No</h4></td>
-										<?php
 										}
 									}
 								}?>

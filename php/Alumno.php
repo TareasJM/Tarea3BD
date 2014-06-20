@@ -149,7 +149,7 @@ class Alumno
 	function getInfoGeneralPostulante($id_area)
 	{
 		include("bd.php");
-		$query = "SELECT *FROM CARRERA c, ALUMNO a,POSTULA p, POSTULANTE z, Area w WHERE  w.id_area = '".$id_area."' and c.id_carrera = a.id_carrera and p.id_postulante = z.id_postulante and z.rol = a.rol ORDER BY a.nombre ASC";
+		$query = "SELECT *FROM CARRERA c, ALUMNO a,POSTULA p, POSTULANTE z, Area w WHERE  w.id_area = '".$id_area."' and and p.id_area = '".$id_area."' c.id_carrera = a.id_carrera and p.id_postulante = z.id_postulante and z.rol = a.rol ORDER BY a.nombre ASC";
 		$result = pg_query($query);
 		$todo = array();
 		$agregados = array();
@@ -201,6 +201,45 @@ class Alumno
 		return $nombre;
 
 	}
+
+	function getCampusCarrera($id_carrera)
+	{
+		include("bd.php");
+		$query = "SELECT campus From Carrera where id_carrera = '".$id_carrera."'";
+		$result = pg_query($query);
+		$campus;
+		while ($row = pg_fetch_assoc($result)) {
+				$campus = $row['campus'];
+		}
+		return $campus;
+
+	}
+
+	function isColaborador($rol,$id_area)
+	{
+		include("bd.php");
+		$query = "SELECT id_postulante From Postulante where rol = '".$rol."'";
+		$result = pg_query($query);
+		$id_postulante;
+		$estadoPostulante;
+		while ($row = pg_fetch_assoc($result)) {
+				$id_postulante = $row['id_postulante'];
+		}
+		$query = "SELECT  estado From Postula where id_postulante = '".$id_postulante."' and id_area ='".$id_area."'";
+		$result = pg_query($query);
+		while ($row = pg_fetch_assoc($result)) {
+				$estadoPostulante = $row['estado'];
+		}
+		if($estadoPostulante == t)
+		{
+			return true;
+		}
+		else
+		{	
+			return false;
+		}
+	}
+
 
 }
 

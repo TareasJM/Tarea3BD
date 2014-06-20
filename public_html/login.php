@@ -81,22 +81,6 @@
 
 	<div id="sidebar">
 				
-				<?php
-				if($_SESSION['tipo'] == 1){ ?>
-				<li><a href="ingresarPostulacion.php">MisDatos<a/><li>
-				<li><a href="areas.php">Áreas<a/><li>
-				<li><a href="coAreas.php">Coordinadores de Área<a/><li>
-				<li><a href="Noticias.php">Noticias<a/><li>
-				<li><a href="login.php">Postulantes<a/><li>
-				<li><a href="login.php">Colaboradores Seleccionado<a/><li>
-				<?php } 
-				else if($_SESSION['tipo'] == 2)
-				{?>
-				<li><a href="ingresarPostulacion.php">MisDatos<a/><li>
-				<li><a href="Noticias.php">Noticias<a/><li>
-				<li><a href="login.php">Postulantes<a/><li>
-				<li><a href="login.php">Colaboradores Seleccionado<a/><li>
-				<?php }?>
 	</div>
 
 	<div id="content">

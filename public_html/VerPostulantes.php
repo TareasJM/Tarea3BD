@@ -16,6 +16,7 @@
 	}
 	//echo "id = $id";
 	$infoPostulante = $postulante->getInfoGeneralPostulante($id);
+	$campus = $postulante->getCampusCarrera($_SESSION['alumno'][1]);
 	/*$aux = $area->getPostulanteArea($id);
 	foreach ($aux as $key) 
 	{	
@@ -136,49 +137,56 @@
 					
 						<?php foreach ($infoPostulante as $postu)
 						{	
+							//poner aca si el area pertene al campus o no
 							$info = $postulante->getPostulaArea($postu[11]);
-							for ($j=0; $j < 3; $j++) { 
-							if($id == $info[$j][1])
-							{
-							?>	
 
-							<tr>
-								<td><h4><?php echo $postu[6] ?></h4></td>
-								<td><h4><?php echo $postu[1] ?></h4></td>
-								<?php for ($i=0; $i < 3; $i++) { 
-									if($info[$i][1] == $id)
-									{?>
-									<td><h4><?= $info[$i][3]?></h4></td>
-									<td><h4><?= $info[$i][2]?></h4></td>
-							<?php 	}
-								}
-							?>
-								<?php for ($i=0; $i < 3; $i++) { 
-									if($info[$i][1] != $id)
-									{?>
-									<td><h4><?= $info[$i][5]?></h4></td>
-							<?php 	}
-								}
-							?>
-								<?php for ($i=0; $i < 3; $i++) { 				
-								if($info[$i][1] != $id)
-									{?>
-									<td><h4><?= $info[$i][3]?></h4></td>
-							<?php 	}
-								}
-							?>
-								<?php for ($i=0; $i < 3; $i++) { 			
-								if($info[$i][1] != $id)
-									{?>
-									<td><h4><?= $info[$i][2]?></h4></td>
-							<?php 	}
-								}
-							?>
+							for ($j=0; $j < 3; $j++) 
+							{ 	
+								if($info[$i][8] == $campus)
+								{
+									if($id == $info[$j][1])
+									{
+									?>	
+
+									<tr>
+										<td><h4><?php echo $postu[6] ?></h4></td>
+										<td><h4><?php echo $postu[1] ?></h4></td>
+										<?php for ($i=0; $i < 3; $i++) { 
+											if($info[$i][1] == $id)
+											{?>
+											<td><h4><?= $info[$i][3]?></h4></td>
+											<td><h4><?= $info[$i][2]?></h4></td>
+									<?php 	}
+										}
+									?>
+										<?php for ($i=0; $i < 3; $i++) { 
+											if($info[$i][1] != $id)
+											{?>
+											<td><h4><?= $info[$i][5]?></h4></td>
+									<?php 	}
+										}
+									?>
+										<?php for ($i=0; $i < 3; $i++) { 				
+										if($info[$i][1] != $id)
+											{?>
+											<td><h4><?= $info[$i][3]?></h4></td>
+									<?php 	}
+										}
+									?>
+										<?php for ($i=0; $i < 3; $i++) { 			
+										if($info[$i][1] != $id)
+											{?>
+											<td><h4><?= $info[$i][2]?></h4></td>
+									<?php 	}
+										}
+								}	?>
 							<td style="margin-left:500px"><a  href="../php/Colaboradores/SeleccionarColaborador.php?id_postulante=<?php echo $postu[11] ?>&id_area=<?php echo $id ?>" class="btn btn-info">Seleccionar</a></td>
             		        <td><a href="../php/Colaboradores/DescartarColaborador.php?id_postulante=<?php echo $postu[11] ?>&id_area=<?php echo $id ?>" class="btn btn-danger">Descartar</a></td>
 							</tr>
 
-		            		<?php }}}?>
+            		  <?php }
+	            		}
+            		}?>
 		  
 				</tbody>
 				</table> 			

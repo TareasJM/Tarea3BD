@@ -55,10 +55,12 @@
 				<li><a href="VerColaboradores.php">Colaboradores Seleccionado<a/></li>
 				<?php 
 				}
-				else if($_SESSION['tipo'] == 3)
+				else if(isset($_SESSION['alumno']))
 				{?>
 				<li><a href="MisDatos.php">MisDatos<a/></li>
+				<li><a href="NoticiasColaboradores.php">Noticias<a/></li>
 			<?php }?>
+
 
 	</div>
 
@@ -67,6 +69,6 @@
 		<?php echo $content; ?>
 		
 	</div>
-		
+
 </body>  
 </html> 

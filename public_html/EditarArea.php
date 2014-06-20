@@ -32,7 +32,8 @@ session_start();
 
 	<div id="sidebar">
 	
-				<li><a href="ingresarPostulacion.php">Agregar Área<a/><li>
+				<li><a href="ingresarPostulacion.php">Agregar Área<a/></li>
+				<li><a href="areas.php">Átras<a/></li>
 
 	</div>
 

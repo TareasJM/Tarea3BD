@@ -147,19 +147,14 @@
 								<td><h4><?php echo $postu[7] ?></h4></td>
 								<td><h4><?php echo $postu[9] ?></h4></td>
 								<td><h4>No Seleccionada</h4></td>
-								<?php for ($i=1; $i < 3; $i++) 
+								<?php for ($i=0; $i < 3; $i++) 
 								{ 	
 									if($info[$i][1] != $id)
 									{
-										if($info[$i][2] == t)
+										if($info[$i][1] != $id and $info[$i][2] == t)
 										{?>
 											<td><h4><?php echo $info[$i][5] ?></h4></td>
 										<?php 
-										}
-										else
-										{?>
-											<td><h4>No</h4></td>
-										<?php
 										}
 									}
 								}?>
@@ -173,21 +168,14 @@
 								<td><h4><?php echo $postu[7] ?></h4></td>
 								<td><h4><?php echo $postu[9] ?></h4></td>
 								<td><h4><?php echo $postu[10] ?></h4></td>
-							<?php for ($i=1; $i < 3; $i++) 
+							<?php for ($i=0; $i < 3; $i++) 
 								{ 	
-									if($info[$i][1] != $id)
-									{
-										if($info[$i][2] == t)
-										{?>
+									if($info[$i][1] != $id and $info[$i][2] == t)
+									{?>
 											<td><h4><?php echo $info[$i][5] ?></h4></td>
 										<?php 
-										}
-										else
-										{?>
-											<td><h4>No</h4></td>
-										<?php
-										}
 									}
+
 								}?>
 								<td style="margin-left:500px"><a  href="../php/Talla/EditarTalla.php?rol_colaborador=<?php echo $postu[3] ?>" class="btn btn-info">Editar Talla</a></td>
 							</tr>

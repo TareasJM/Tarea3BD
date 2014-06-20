@@ -45,7 +45,8 @@ CREATE TABLE Area (
 	id_area 		SERIAL primary key not null,
 	nombre			varchar(100) not null,
 	n_colaboradores	int not null,
-	horario 		varchar(100) not null
+	horario 		varchar(100) not null,
+	campus 			varchar(100) not null
 );
 
 CREATE TABLE Postula (

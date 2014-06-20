@@ -32,7 +32,7 @@ session_start();
 
 	<div id="sidebar">
 	
-				<li><a href="VerColaboradores.php">Atrás<a/></li>
+				<li><a href="index.php">Atrás<a/></li>
 
 	</div>
 
@@ -40,12 +40,22 @@ session_start();
 		<ul style="text-align:center"> 
 
 
-			<h1 style="color:black">Editar Talla</h1>
-			<form action="../php/Talla/GuardarEditado.php" method="POST" onsubmit="validateForm()" >  
-				<li><input type="hidden" name="rol_colaborador" id="rol_colaborador" value="<?= $_SESSION['alumno'][0]?>"/> </li>
-				<li>Talla:<br><input type="text" name="talla" id="talla"/></li> 
-				<li><input value="Guardar" class="btn btn-info" type="submit"/></li>
+			<ul style="text-align:center"> 
+
+
+			<h1 style="color:black">Mis Datos</h1>
+			<form action="../php/MisDatos/GuardarEditado.php" method="POST" onsubmit="validateForm()" >  
+				<li style="color:white">Nombre:<br><input readonly style="text-align:center" type="text" name="nombre" id="nombre" value="<?=$_SESSION['alumno'][3]?>" /></li> 
+				<li style="color:white">RUT:<br><input readonly style="text-align:center" type="text" name="rut" id="rut" value="<?=$_SESSION['alumno'][2]?>" /></li> 
+				<li style="color:white">ROL:<br><input readonly style="text-align:center" type="text" name="rol" id="rol" value="<?=$_SESSION['alumno'][0]?>" /></li>
+				<li style="color:white">Carrera:<br><input readonly style="text-align:center" type="text" name="carrera" id="carrera" value="<?=$carrera?>"/></li>
+				<li style="color:white">Talla:<br><input  style="text-align:center" type="text" name="talla" id="talla"value="<?=$_SESSION['alumno'][7]?>" /></li> 
+				<li style="color:white">Correo:<br><input readonly style="text-align:center" type="text" name="correo" id="correo" value="<?=$_SESSION['alumno'][4]?>" /></li> 
+				<li style="color:white">Teléfono:<br><input readonly style="text-align:center" type="text" name="telefono" id="telefono" value="<?=$_SESSION['alumno'][6]?>" /></li> 
+				<li style="color:white">Contraseña:<br><input readonly style="text-align:center" type="text" name="contrasena" id="contrasena" value="<?=$_SESSION['alumno'][5]?>" /></li> 
+				<li><input value="Guardar" class="btn btn-info" type="submit" /></li>
 			</form>
+		</ul>
 		</ul>
 	</div>
 		  

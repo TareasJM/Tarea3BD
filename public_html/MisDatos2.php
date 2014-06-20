@@ -38,7 +38,7 @@ $_SESSION['alumno'][7] = $al[0][7];
 
 	<div id="sidebar">
 	
-				<li><a href="VerColaboradores.php">Atrás<a/></li>
+				<li><a href="index.php">Atrás<a/></li>
 
 	</div>
 
