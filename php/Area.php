@@ -24,7 +24,7 @@ class Area
 	function EditArea($nombre)
 	{
 		include("bd.php");
-		$query = "SELECT * FROM area WHERE nombre = '".$nombre."'";
+		$query = "SELECT * FROM area WHERE nombreA = '".$nombre."'";
 		$result = pg_query($query);
 		$area = array();
 		while ($row = pg_fetch_row($result))
@@ -74,6 +74,8 @@ class Area
 		}
 		return $area;
 	}
+
+
 	// function deleteAreaByName($nombre)
 	// {
 	// 	include("bd.php");

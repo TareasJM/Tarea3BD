@@ -4,7 +4,7 @@
 	
 	function agregarArea($nombre,$col,$horario){
 		
-		$query = "INSERT INTO area (nombre,n_colaboradores,horario) VALUES 
+		$query = "INSERT INTO area (nombreA,n_colaboradores,horario) VALUES 
 		('".$nombre."','".$col."','".$horario."')";		
 		return pg_query($query);
 	}

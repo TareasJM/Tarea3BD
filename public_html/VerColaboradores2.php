@@ -10,6 +10,7 @@
 	$id = $_SESSION['id_area'];
 	$area = $area->getArea($id);
 	$infoColaborador = $colaborador->getInfoGeneralColaboradores($id);
+	$aux =0;
 	/*$aux = $area->getPostulanteArea($id);
 	foreach ($aux as $key) 
 	{	
@@ -133,12 +134,29 @@
 								{ 	
 									if($info[$i][1] != $id)
 									{
+										
 										if($info[$i][1] != $id and $info[$i][2] == t)
 										{?>
 											<td><h4><?php echo $info[$i][5] ?></h4></td>
 										<?php 
 										}
 									}
+
+									if($info[$i][2] == f)
+									{
+										$aux++;
+									}
+
+									if($aux == 2)
+									{?>
+
+										<td><h4>NO</h4></td>
+							<?php   }
+									if($i == 2)
+									{
+										$aux = 0;
+									}
+		
 								}?>
 								<td style="margin-left:500px"><a  href="../php/Talla/EditarTalla.php?rol_colaborador=<?php echo $postu[3] ?>" class="btn btn-info">Editar Talla</a></td>
 							</tr>
@@ -153,13 +171,29 @@
 							<?php for ($i=0; $i < 3; $i++) 
 								{ 	
 									if($info[$i][1] != $id)
-									{
+									{	
 										if($info[$i][1] != $id and $info[$i][2] == t)
 										{?>
 											<td><h4><?php echo $info[$i][5] ?></h4></td>
 										<?php 
 										}
+
 									}
+											if($info[$i][2] == f)
+									{
+										$aux++;
+									}
+
+									if($aux == 2)
+									{?>
+
+										<td><h4>NO</h4></td>
+							<?php   }
+									if($i == 2)
+									{
+										$aux = 0;
+									}
+		
 								}?>
 								<td style="margin-left:500px"><a  href="../php/Talla/EditarTalla.php?rol_colaborador=<?php echo $postu[3] ?>" class="btn btn-info">Editar Talla</a></td>
 							</tr>

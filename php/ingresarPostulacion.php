@@ -36,9 +36,9 @@
 	{
 		$id_pos = $id[0];
 	}
-	echo InsertarPostulacion($id_pos,$_POST[postulacion1],1);
-	echo InsertarPostulacion($id_pos,$_POST[postulacion2],2);
-	echo InsertarPostulacion($id_pos,$_POST[postulacion3],3);
+	echo InsertarPostulacion($id_pos,$_POST[postu1],1);
+	echo InsertarPostulacion($id_pos,$_POST[postu2],2);
+	echo InsertarPostulacion($id_pos,$_POST[postu3],3);
 
 	header("Location: ../public_html/login.php");
 
