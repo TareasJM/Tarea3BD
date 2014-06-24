@@ -14,7 +14,7 @@
 		
 		$id = $id_area[1];
 	}
-	//echo "id = $id";
+	echo "id = $id";
 	$infoPostulante = $postulante->getInfoGeneralPostulante($id);
 	$campus = $postulante->getCampusCarrera($_SESSION['alumno'][1]);
 	/*$aux = $area->getPostulanteArea($id);

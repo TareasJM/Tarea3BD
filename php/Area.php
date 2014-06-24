@@ -11,7 +11,7 @@ class Area
 	function getAreas()
 	{
 		include("bd.php");
-		$query = "SELECT * FROM area ORDER BY nombre";
+		$query = "SELECT * FROM area ORDER BY nombreA";
 		$result = pg_query($query);
 		$areas = array();
 		while ($row = pg_fetch_row($result))

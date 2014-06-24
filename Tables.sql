@@ -1,14 +1,14 @@
 CREATE TABLE Carrera (
         id_carrera	SERIAL primary key not null,
-        nombre		varchar(100) not null,
-        campus		varchar(100) not null
+        nombreC		varchar(100) not null,
+        campusC		varchar(100) not null
 );
 
 CREATE TABLE Alumno (
         rol			varchar(100) primary key not null,
         id_carrera	int references Carrera(id_carrera) not null,
         rut			varchar(100) not null,
-        nombre		varchar(100) not null,
+        nombreAl		varchar(100) not null,
         correo		varchar(100) not null,
         contrasena	varchar(100) not null,
         telefono	varchar(100) not null,
@@ -43,10 +43,10 @@ CREATE TABLE Selecciona (
 
 CREATE TABLE Area (
 	id_area 		SERIAL primary key not null,
-	nombre			varchar(100) not null,
+	nombreA			varchar(100) not null,
 	n_colaboradores	int not null,
 	horario 		varchar(100) not null,
-	campus 			varchar(100) not null
+	campusA 		varchar(100) not null
 );
 
 CREATE TABLE Postula (

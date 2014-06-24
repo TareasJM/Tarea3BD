@@ -149,7 +149,7 @@ class Alumno
 	function getInfoGeneralPostulante($id_area)
 	{
 		include("bd.php");
-		$query = "SELECT *FROM CARRERA c, ALUMNO a,POSTULA p, POSTULANTE z, Area w WHERE  w.id_area = '".$id_area."' and and p.id_area = '".$id_area."' c.id_carrera = a.id_carrera and p.id_postulante = z.id_postulante and z.rol = a.rol ORDER BY a.nombre ASC";
+		$query = "SELECT *FROM CARRERA c, ALUMNO a,POSTULA p, POSTULANTE z, Area w WHERE  w.id_area = '".$id_area."' and p.id_area = '".$id_area."' and c.id_carrera = a.id_carrera and p.id_postulante = z.id_postulante and z.rol = a.rol ORDER BY a.nombreAL ASC";
 		$result = pg_query($query);
 		$todo = array();
 		$agregados = array();
@@ -179,7 +179,7 @@ class Alumno
 	function getInfoGeneralColaboradores($id_area)
 	{
 		include("bd.php");
-		$query = "SELECT *FROM CARRERA c, ALUMNO a,POSTULA p, POSTULANTE z, Area w WHERE  p.id_area = '".$id_area."' and w.id_area = '".$id_area."' and p.estado = true and c.id_carrera = a.id_carrera and p.id_postulante = z.id_postulante and z.rol = a.rol ORDER BY a.nombre ASC";
+		$query = "SELECT *FROM CARRERA c, ALUMNO a,POSTULA p, POSTULANTE z, Area w WHERE  p.id_area = '".$id_area."' and w.id_area = '".$id_area."' and p.estado = true and c.id_carrera = a.id_carrera and p.id_postulante = z.id_postulante and z.rol = a.rol ORDER BY a.nombreAL ASC";
 		$result = pg_query($query);
 		$todo = array();
 		while ($row = pg_fetch_row($result)) {
@@ -192,11 +192,11 @@ class Alumno
 	function getCarrera($id_carrera)
 	{
 		include("bd.php");
-		$query = "SELECT nombre From Carrera where id_carrera = '".$id_carrera."'";
+		$query = "SELECT nombreC From Carrera where id_carrera = '".$id_carrera."'";
 		$result = pg_query($query);
 		$nombre;
 		while ($row = pg_fetch_assoc($result)) {
-				$nombre = $row['nombre'];
+				$nombre = $row['nombrec'];
 		}
 		return $nombre;
 
@@ -205,11 +205,12 @@ class Alumno
 	function getCampusCarrera($id_carrera)
 	{
 		include("bd.php");
-		$query = "SELECT campus From Carrera where id_carrera = '".$id_carrera."'";
+		$query = "SELECT campusC From Carrera where id_carrera = '".$id_carrera."'";
 		$result = pg_query($query);
 		$campus;
 		while ($row = pg_fetch_assoc($result)) {
-				$campus = $row['campus'];
+				$campus = $row['campusc'];
+
 		}
 		return $campus;
 

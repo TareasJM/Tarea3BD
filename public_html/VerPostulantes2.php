@@ -5,6 +5,7 @@
 	session_start();
 	$postulante = new Alumno();	
 	$id = $_SESSION['id_area'];
+
 	$infoPostulante = $postulante->getInfoGeneralPostulante($id); 
 	$campus = $postulante->getCampusCarrera($_SESSION['alumno'][1]);
 
@@ -49,7 +50,7 @@
 
 		<table class="table" style="color:white; text-align:center">
 				<thead>
-					<?php if(count($infoPostulante)!= null)
+					<?php if(count($infoPostulante)> 0)
 					{?>
 					  	<tr>
 						  	<th><h6>Nombre</h6></th>
@@ -70,12 +71,15 @@
 					
 						<?php foreach ($infoPostulante as $postu)
 						{	
+
 							$info = $postulante->getPostulaArea($postu[11]);
-							for ($j=0; $j < 3; $j++) 
+
+							for ($i=0; $i < 3; $i++) 
 							{ 	
+
 								if($info[$i][8] == $campus)
 								{
-									if($id == $info[$j][1])
+									if($id == $info[$i][1])
 									{?>	
 									<tr>
 									<td><h4><?php echo $postu[6] ?></h4></td>
@@ -112,12 +116,12 @@
 										<td><h4><?= $info[$i][2]?></h4></td>
 								<?php 	}
 									}
-									}?>
+									?>
 									<td style="margin-left:500px"><a  href="../php/Colaboradores/SeleccionarColaborador2.php?id_postulante=<?php echo $postu[11] ?>&id_area=<?php echo $id ?>" class="btn btn-info">Seleccionar</a></td>
 		            		        <td><a href="../php/Colaboradores/DescartarColaborador2.php?id_postulante=<?php echo $postu[11] ?>&id_area=<?php echo $id ?>" class="btn btn-danger">Descartar</a></td>
 									</tr>
 
-	            		<?php 	}
+	            		<?php 	}}
 		            		}
 		            	}?>
 		  
