@@ -5,7 +5,7 @@
 	function EditAreaByID($id,$nombre,$ncol,$horario)
 	{
 		include("bd.php");
-		$query = "UPDATE area set nombre = '".$nombre."' , n_colaboradores = '".$ncol."', horario = '".$horario."'
+		$query = "UPDATE area set nombreA = '".$nombre."' , n_colaboradores = '".$ncol."', horario = '".$horario."'
 		WHERE id_area = '".$id."'";
 		$result = pg_query($query);
 		return $result;
