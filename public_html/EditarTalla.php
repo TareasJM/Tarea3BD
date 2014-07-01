@@ -43,7 +43,17 @@ session_start();
 			<h1>Editar Talla</h1>
 			<form action="../php/Talla/GuardarEditado.php" method="POST" onsubmit="validateForm()" >  
 				<li><input type="hidden" name="rol_colaborador" id="rol_colaborador" value="<?= $_SESSION['rol_colaborador_talla']?>"/> </li>
-				<li>Talla:<br><input type="text" name="talla" id="talla"/></li> 
+				<li>Talla:<br><input type="text" name="talla" id="talla"/></li>
+				<!---
+				<li >Talla:<br><select style="text-indent: 90px;" name="talla" id="talla" >
+				<option value="0" disabled selected style="display:none">Área</option>'
+	    		<option style="text-indent: 90px;" value="XS">XS</option>
+	    		<option value="S">S</option>
+	    		<option value="M">M</option>
+	    		<option value="L">L</option>
+				<option value="XL">XL</option>
+				<option value="XLL">XLL</option>
+				</select></li> -->
 				<li><input value="Guardar" class="btn btn-info" type="submit"/></li>
 			</form>
 		</ul>

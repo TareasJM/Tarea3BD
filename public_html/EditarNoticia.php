@@ -42,8 +42,8 @@ session_start();
 
 			<h1>Editar Noticia</h1>
 			<form action="../php/Noticias/GuardarEditado.php" method="POST" onsubmit="validateForm()" >  
-				<li><input type="hidden" name="id_noticia" id="id_noticia" value="<?= $_SESSION['noticia'][0] ?>"/> </li> 
-				<li>Titular:<br><input type="text" name="titular" id="titular" value="<?= $_SESSION['noticia'][3] ?>"/></li> 
+				<li><input  type="hidden" name="id_noticia" id="id_noticia" value="<?= $_SESSION['noticia'][0] ?>"/> </li> 
+				<li>Titular:<br><input style="text-align:center" type="text" name="titular" id="titular" value="<?= $_SESSION['noticia'][3] ?>"/></li> 
 				<li>Contenido:<br><textarea style=" margin:auto; resize:none; width:50%; height:100px; border: 1px solid blue; position:static" type="text" name="contenido" id="contenido" ><?= $_SESSION['noticia'][4] ?></textarea></li> 
 				<li><input value="Guardar" class="btn btn-info" type="submit"/></li>
 			</form>

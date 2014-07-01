@@ -38,28 +38,29 @@
 
 	<div id="sidebar">
 				<?php echo $sidebar; ?>
-				<?php
-				if($_SESSION['tipo'] == 1){ ?>
-				<li><a href="MisDatos2.php">MisDatos<a/></li>
-				<li><a href="areas.php">Áreas<a/></li>
-				<li><a href="coAreas.php">Coordinadores de Área<a/></li>
-				<li><a href="Noticias.php">Noticias<a/></li>
-				<li><a href="VerPostulantes.php">Postulantes<a/></li>
-				<li><a href="VerColaboradores.php">Colaboradores Seleccionado<a/></li>
-				<?php } 
-				else if($_SESSION['tipo'] == 2)
-				{?>
-				<li><a href="MisDatos2.php">MisDatos<a/></li>
-				<li><a href="Noticias.php">Noticias<a/></li>
-				<li><a href="VerPostulantes.php">Postulantes<a/></li>
-				<li><a href="VerColaboradores.php">Colaboradores Seleccionado<a/></li>
-				<?php 
-				}
-				else if(isset($_SESSION['alumno']))
-				{?>
-				<li><a href="MisDatos.php">MisDatos<a/></li>
-				<li><a href="NoticiasColaboradores.php">Noticias<a/></li>
-			<?php }?>
+				<?php if($sidebar == null)
+				{
+					if($_SESSION['tipo'] == 1){ ?>
+					<li><a href="MisDatos2.php">MisDatos<a/></li>
+					<li><a href="areas.php">Áreas<a/></li>
+					<li><a href="coAreas.php">Coordinadores de Área<a/></li>
+					<li><a href="Noticias.php">Noticias<a/></li>
+					<li><a href="VerPostulantes.php">Postulantes<a/></li>
+					<li><a href="VerColaboradores.php">Colaboradores Seleccionado<a/></li>
+					<?php } 
+					else if($_SESSION['tipo'] == 2)
+					{?>
+					<li><a href="MisDatos2.php">MisDatos<a/></li>
+					<li><a href="Noticias.php">Noticias<a/></li>
+					<li><a href="VerPostulantes.php">Postulantes<a/></li>
+					<li><a href="VerColaboradores.php">Colaboradores Seleccionado<a/></li>
+					<?php 
+					}
+					else if(isset($_SESSION['alumno']))
+					{?>
+					<li><a href="MisDatos.php">MisDatos<a/></li>
+					<li><a href="NoticiasColaboradores.php">Noticias<a/></li>
+			<?php }}?>
 
 
 	</div>

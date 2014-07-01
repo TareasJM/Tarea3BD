@@ -43,12 +43,12 @@ session_start();
 
 			<h1>Editar Área</h1>
 			<form action="../php/Areas/GuardarEditado.php" method="POST" >
-				<li><input type="hidden" name="id_area" id="id_area" value="<?= $_SESSION['area'][0] ?>"/> </li> 
-				<li>Nombre:<br><input type="text" name="nombre" id="nombre" value="<?= $_SESSION['area'][1] ?>"/>
+				<li><input style="text-align:center" type="hidden" name="id_area" id="id_area" value="<?= $_SESSION['area'][0] ?>"/> </li> 
+				<li>Nombre:<br><input style="text-align:center" type="text" name="nombre" id="nombre" value="<?= $_SESSION['area'][1] ?>"/>
 				</li> 
-				<li>N°Colaboradores:<br><input type="text" name="ncol" id="ncol" value="<?= $_SESSION['area'][2] ?>"/>
+				<li>N°Colaboradores:<br><input style="text-align:center" type="text" name="ncol" id="ncol" value="<?= $_SESSION['area'][2] ?>" readonly/>
 				</li> 
-				<li>Horario:<br><input type="text" name="horario" id="horario" value="<?= $_SESSION['area'][3] ?>"/>
+				<li>Horario:<br><input style="text-align:center" type="text" name="horario" id="horario" value="<?= $_SESSION['area'][3] ?>"/>
 				</li>
 				<li><input value="Editar" class="btn btn-info" type="submit"/></li>
 		</ul>

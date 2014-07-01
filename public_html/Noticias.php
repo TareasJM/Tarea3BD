@@ -2,8 +2,11 @@
 <?php
 
 	include("../php/Noticia.php");
+	include("../php/Area.php");
 	$noticia = new Noticia();
+	$areas = new Area();
 	$noticias = $noticia->getNoticias();
+
 	session_start();
 ?>
 
@@ -50,16 +53,21 @@
 			<?php if(count($noticias)>0)
 			{?>
 			  	<tr>
+			  		<th><h2>Área</h2></th>
 				  	<th><h2>Titulo</h2></th>
 				  	<th><h2>Contenido</h2></th>
+				  	<th><h2>Opciones</h2></th>
 				</tr>
 			<?php } ?>
 		</thead>
 		<tbody>
 		  <?php 
 			foreach ($noticias as $a) 
-			{	?>
+			{
+			$area = $areas->getArea($a[2])
+				?>
             	<tr style="margin-rigth:500px">
+            		<td><h4><?php echo $area[0][1] ?></h4></td>
             		<td><h4><?php echo $a[3] ?></h4></td>	
             		<td><h4><?php echo $a[4] ?></h4></td>	
             		<td style="margin-left:500px"><a  href="../php/Noticias/EditarNoticia.php?id_noticia=<?php echo $a[0] ?>" class="btn btn-info">Editar</a></td>
