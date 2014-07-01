@@ -1,0 +1,95 @@
+CREATE OR REPLACE VIEW View_seleccionados
+AS
+SELECT a.id_area,p2.id_postulante,al.rol,al.nombreal,c.nombrec,a.campusa,a.nombrea FROM AREA a,POSTULA p1, POSTULANTE p2, ALUMNO al, CARRERA c
+WHERE p2.id_postulante = p1.id_postulante
+ and a.id_area = p1.id_area 
+ and a.campusa = c.campusc 
+ and p1.estado = TRUE 
+ and c.id_carrera = al.id_carrera
+ and al.rol = p2.rol;
+
+
+CREATE OR REPLACE VIEW View_SELECCIONADOS_COORDINACION_GENEGRAL
+AS
+SELECT a.id_area,p2.id_postulante,al.rol,al.nombreal,c.nombrec,a.campusa,a.nombrea
+FROM AREA a,POSTULA p1, POSTULANTE p2, ALUMNO al, CARRERA c
+WHERE p2.id_postulante = p1.id_postulante
+ and a.id_area = 1
+ and p1.id_area = 1
+ and a.campusa = c.campusc 
+ and p1.estado = TRUE 
+ and c.id_carrera = al.id_carrera
+ and al.rol = p2.rol;
+
+CREATE OR REPLACE VIEW View_SELECCIONADOS_TUNEL
+AS
+SELECT a.id_area,p2.id_postulante,al.rol,al.nombreal,c.nombrec,a.campusa,a.nombrea
+FROM AREA a,POSTULA p1, POSTULANTE p2, ALUMNO al, CARRERA c
+WHERE p2.id_postulante = p1.id_postulante
+ and a.id_area = 2
+ and p1.id_area = 2
+ and a.campusa = c.campusc 
+ and p1.estado = TRUE 
+ and c.id_carrera = al.id_carrera
+ and al.rol = p2.rol;
+
+ CREATE OR REPLACE VIEW View_SELECCIONADOS_DINAMICAS
+AS
+SELECT a.id_area,p2.id_postulante,al.rol,al.nombreal,c.nombrec,a.campusa,a.nombrea
+FROM AREA a,POSTULA p1, POSTULANTE p2, ALUMNO al, CARRERA c
+WHERE p2.id_postulante = p1.id_postulante
+ and a.id_area = 3
+ and p1.id_area = 3
+ and a.campusa = c.campusc 
+ and p1.estado = TRUE 
+ and c.id_carrera = al.id_carrera
+ and al.rol = p2.rol;
+
+
+ CREATE OR REPLACE VIEW View_SELECCIONADOS_CONCURSOS
+AS
+SELECT a.id_area,p2.id_postulante,al.rol,al.nombreal,c.nombrec,a.campusa,a.nombrea
+FROM AREA a,POSTULA p1, POSTULANTE p2, ALUMNO al, CARRERA c
+WHERE p2.id_postulante = p1.id_postulante
+ and a.id_area = 4
+ and p1.id_area = 4
+ and a.campusa = c.campusc 
+ and p1.estado = TRUE 
+ and c.id_carrera = al.id_carrera
+ and al.rol = p2.rol;
+
+ CREATE OR REPLACE VIEW View_SELECCIONADOS_ALIMENTACION
+AS
+SELECT a.id_area,p2.id_postulante,al.rol,al.nombreal,c.nombrec,a.campusa,a.nombrea
+FROM AREA a,POSTULA p1, POSTULANTE p2, ALUMNO al, CARRERA c
+WHERE p2.id_postulante = p1.id_postulante
+ and a.id_area = 5
+ and p1.id_area = 5
+ and a.campusa = c.campusc 
+ and p1.estado = TRUE 
+ and c.id_carrera = al.id_carrera
+ and al.rol = p2.rol;
+
+ CREATE OR REPLACE VIEW View_SELECCIONADOS_REGISTRO_VISUAL
+AS
+SELECT a.id_area,p2.id_postulante,al.rol,al.nombreal,c.nombrec,a.campusa,a.nombrea
+FROM AREA a,POSTULA p1, POSTULANTE p2, ALUMNO al, CARRERA c
+WHERE p2.id_postulante = p1.id_postulante
+ and a.id_area = 6
+ and p1.id_area = 6
+ and a.campusa = c.campusc 
+ and p1.estado = TRUE 
+ and c.id_carrera = al.id_carrera
+ and al.rol = p2.rol;
+
+ CREATE OR REPLACE VIEW View_SELECCIONADOS_AUDIO
+AS
+SELECT a.id_area,p2.id_postulante,al.rol,al.nombreal,c.nombrec,a.campusa,a.nombrea
+FROM AREA a,POSTULA p1, POSTULANTE p2, ALUMNO al, CARRERA c
+WHERE p2.id_postulante = p1.id_postulante
+ and a.id_area = 7
+ and p1.id_area = 7
+ and a.campusa = c.campusc 
+ and p1.estado = TRUE 
+ and c.id_carrera = al.id_carrera
+ and al.rol = p2.rol;

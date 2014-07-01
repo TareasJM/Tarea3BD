@@ -1,46 +1,29 @@
-CREATE OR REPLACE FUNCTION AumentarColaboradores()
-RETURNS trigger AS 
-$body$
-DECLARE 
-
-	aux BOOLEAN;
-
-
+create or replace function AumentarColaboradores() returns trigger AS 
+$$
 BEGIN
-	
+	IF (NEW.estado = TRUE) THEN
+		UPDATE area
+		SET N_COLABORADORES = N_COLABORADORES + 1
+		WHERE id_area = new.id_area;
+        --no WHERE in this update? it will update the whole table
 
-	SELECT p.estado INTO aux 
-	FROM POSTULA p, POSTULANTE p2, AREA a
-	WHERE p.id_postulante = p2.id_postulante 
-	AND p.id_area = a.id_area
+        -- also, (uncomment below) you may want to take 1 away if estadio is false
 
-	IF TG_OP = 'UPDATE' 
-	THEN
-		IF old.estado IS FALSE and new.estado IS TRUE
-		THEN
-			UPDATE AREA 
-			SET N_COLABORADORES = N_COLABORADORES + 5
-			WHERE id_area = new.id_area;
-		END IF;
-			
+
+	ELSE
+		UPDATE area
+		SET N_COLABORADORES = N_COLABORADORES - 1
+		WHERE id_area = new.id_area;
+		
 	END IF;
-	
-END; 
-$body$
-LANGUAGE plpgsql;
 
+    RETURN NEW;
+END
+$$
+language plpgsql
 
 CREATE TRIGGER Trigger_num_seleccionados
 			AFTER UPDATE ON POSTULA
 			FOR EACH ROW
 			EXECUTE PROCEDURE AumentarColaboradores();
 
-CREATE OR REPLACE VIEW View_seleccionados
-AS
-SELECT a.id_area,p2.id_postulante,al.rol,al.nombreal,c.nombrec,a.campusa,a.nombrea FROM AREA a,POSTULA p1, POSTULANTE p2, ALUMNO al, CARRERA c
-WHERE p2.id_postulante = p1.id_postulante
- and a.id_area = p1.id_area 
- and a.campusa = c.campusc 
- and p1.estado = TRUE 
- and c.id_carrera = al.id_carrera
- and al.rol = p2.rol

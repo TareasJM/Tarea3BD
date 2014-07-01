@@ -2,10 +2,12 @@
 <?php
 
     include("../php/Alumno.php");
+    include("../php/Area.php");
 	session_start();
+	$area = new Area();
 	$postulante = new Alumno();	
 	$id = $_SESSION['id_area'];
-
+	$areas = $area->getArea($id);
 	$infoPostulante = $postulante->getInfoGeneralPostulante($id); 
 	$campus = $postulante->getCampusCarrera($_SESSION['alumno'][1]);
 
@@ -46,7 +48,7 @@
 	</div>
 
 	<div id="content" style="color:black">
-		<h2 style="text-align:center">Postulantes</h2>
+		<h2 style="text-align:center">Postulantes <?=$areas[0][1]?></h2>
 
 		<table class="table" style="color:white; text-align:center">
 				<thead>
